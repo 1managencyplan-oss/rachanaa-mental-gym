@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mental Gym — Train Your Mind Like You Train Your Body</title>
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1474043517040815');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1474043517040815&ev=PageView&noscript=1"/></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Manrope',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hidden;}
+    h1,h2,h3,.hero-headline,.section-title,.pbp-wrap h2,.mindresult-wrap h2,.learn-wrap h2,.about-wrap h2,.testimonial-wrap h2,.faq-wrap h2{font-family:'Cormorant Garamond',serif;}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,.5)}70%{box-shadow:0 0 0 20px rgba(220,38,38,0)}}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    @keyframes scaleIn{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:scale(1)}}
+    @keyframes slideLeft{from{opacity:0;transform:translateX(-50px)}to{opacity:1;transform:translateX(0)}}
+    @keyframes slideRight{from{opacity:0;transform:translateX(50px)}to{opacity:1;transform:translateX(0)}}
+
+    .reveal{opacity:0;transform:translateY(36px);transition:opacity .75s ease,transform .75s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .reveal-left{opacity:0;transform:translateX(-50px);transition:opacity .75s ease,transform .75s ease;}
+    .reveal-left.visible{opacity:1;transform:translateX(0);}
+    .reveal-right{opacity:0;transform:translateX(50px);transition:opacity .75s ease,transform .75s ease;}
+    .reveal-right.visible{opacity:1;transform:translateX(0);}
+    .reveal-scale{opacity:0;transform:scale(.9);transition:opacity .75s ease,transform .75s ease;}
+    .reveal-scale.visible{opacity:1;transform:scale(1);}
+
+    /* TOP BAR */
+    .top-bar{background:linear-gradient(90deg,#dc2626,#ef4444);padding:10px 20px;text-align:center;font-size:13px;font-weight:700;letter-spacing:.2px;}
+    .top-bar span{color:#fff200;}
+
+    /* ── HERO ── */
+    .hero-wrap{max-width:960px;margin:0 auto;padding:48px 24px 32px;text-align:center;animation:fadeUp .9s ease forwards;}
+    .eyebrow{display:inline-block;background:rgba(220,38,38,.15);border:1px solid rgba(220,38,38,.4);color:#ef4444;font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;padding:6px 18px;border-radius:50px;margin-bottom:28px;}
+    .hero-line1{font-size:clamp(22px,3vw,42px);font-weight:900;line-height:1.2;color:#fff;margin-bottom:4px;}
+    .hero-line2{font-size:clamp(36px,5.5vw,68px);font-weight:900;line-height:1.1;color:#ef4444;margin-bottom:16px;}
+    .hero-wrap h1 .red{color:#ef4444;}
+    .hero-sub{font-size:clamp(15px,1.8vw,18px);color:#888;line-height:1.7;max-width:680px;margin:0 auto 36px;}
+    .hero-sub strong{color:#ccc;}
+
+    .badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px;justify-content:center;}
+    .badge{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#ccc;font-size:12px;font-weight:700;padding:7px 16px;border-radius:50px;}
+    .badge.hot{background:rgba(220,38,38,.15);border-color:rgba(220,38,38,.4);color:#fca5a5;}
+
+    .cta-btn{display:inline-block;background:linear-gradient(135deg,#dc2626,#b91c1c);color:#fff;font-size:17px;font-weight:800;padding:17px 42px;border-radius:13px;cursor:pointer;border:none;animation:pulse 2.5s infinite;box-shadow:0 8px 32px rgba(220,38,38,.35);transition:transform .2s;}
+    .cta-btn:hover{transform:scale(1.03);}
+    .cta-note{font-size:12px;color:#555;margin-top:11px;}
+
+    /* ── VIDEO ── */
+    .divider{border:none;border-top:1px solid rgba(255,255,255,.07);}
+    .video-wrap{max-width:960px;margin:0 auto;padding:0 20px 64px;}
+    .video-card{position:relative;padding-bottom:56.25%;border-radius:20px;overflow:hidden;border:2px solid rgba(255,255,255,.12);box-shadow:0 32px 80px rgba(0,0,0,.8);}
+    .video-card iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+
+    /* ── SECTION LABEL ── */
+    .sec-label{color:#ef4444;font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px;}
+
+    /* ── GYM VS ── */
+    .gym-vs-wrap{max-width:860px;margin:0 auto;padding:72px 20px;}
+    .gym-vs-wrap h2{text-align:center;font-size:clamp(24px,3.5vw,40px);font-weight:900;color:#fff;margin-bottom:48px;line-height:1.15;}
+    .gym-vs-wrap h2 span{color:#ef4444;}
+
+    .vs-grid{display:grid;grid-template-columns:1fr 60px 1fr;align-items:center;gap:0;}
+    @media(max-width:560px){.vs-grid{grid-template-columns:1fr;gap:12px;}}
+
+    .vs-card{border-radius:20px;padding:32px 24px;text-align:center;}
+    .vs-card.body-side{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);}
+    .vs-card.mind-side{background:linear-gradient(135deg,rgba(220,38,38,.15),rgba(185,28,28,.04));border:2px solid rgba(220,38,38,.4);}
+    .vs-card .big-ico{font-size:52px;margin-bottom:16px;display:block;}
+    .vs-card.mind-side .big-ico{animation:float 3s ease-in-out infinite;}
+    .vs-card h3{font-size:18px;font-weight:900;margin-bottom:12px;}
+    .vs-card.body-side h3{color:#666;}
+    .vs-card.mind-side h3{color:#ef4444;}
+    .vs-card p{font-size:13px;color:#555;line-height:1.7;}
+    .vs-card.mind-side p{color:#bbb;}
+    .vs-new{display:inline-block;background:rgba(220,38,38,.2);border:1px solid rgba(220,38,38,.4);color:#fca5a5;font-size:11px;font-weight:800;padding:3px 12px;border-radius:50px;margin-top:14px;}
+    .vs-center{text-align:center;font-size:24px;font-weight:900;color:#ef4444;}
+
+    .vs-q{margin-top:40px;padding:28px;background:rgba(220,38,38,.08);border:1px solid rgba(220,38,38,.2);border-radius:16px;text-align:center;}
+    .vs-q p{font-size:clamp(16px,2vw,20px);font-weight:800;color:#fff;line-height:1.55;}
+    .vs-q p span{color:#ef4444;}
+
+    /* ── PAIN ── */
+    .pain-wrap{max-width:860px;margin:0 auto;padding:72px 20px;}
+    .pain-wrap h2{font-size:clamp(24px,3.5vw,40px);font-weight:900;color:#fff;margin-bottom:40px;line-height:1.15;}
+    .pain-wrap h2 span{color:#ef4444;}
+
+    .pain-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+    @media(max-width:700px){.pain-grid{grid-template-columns:repeat(2,1fr);}}
+
+    .pain-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:22px 14px;text-align:center;transition:border-color .3s,transform .3s,background .3s;}
+    .pain-card:hover{border-color:rgba(220,38,38,.4);transform:translateY(-5px);background:rgba(220,38,38,.06);}
+    .pain-card .p-ico{font-size:34px;margin-bottom:12px;display:block;}
+    .pain-card p{font-size:12px;color:#888;font-weight:600;line-height:1.45;}
+
+    /* ── GYM EQUIPMENT ICONS ── */
+    .gym-ico{display:block;margin:0 auto 16px;width:56px;height:56px;}
+    .gym-ico path,.gym-ico circle,.gym-ico rect,.gym-ico line{vector-effect:non-scaling-stroke;}
+    .vs-card.body-side .gym-ico{color:#5a5a5a;}
+    .vs-card.mind-side .gym-ico{color:#ef4444;animation:float 3s ease-in-out infinite;}
+    .pain-card .plate-ico{display:block;margin:0 auto 12px;width:34px;height:34px;color:#6b4444;transition:color .3s;}
+    .pain-card:hover .plate-ico{color:#ef4444;}
+
+    /* ── DESIGNED LIKE A GYM ── */
+    .dlg-wrap{max-width:920px;margin:0 auto;padding:72px 20px;}
+    .dlg-wrap h2{text-align:center;font-size:clamp(26px,3.8vw,44px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:14px;}
+    .dlg-wrap h2 span{color:#ef4444;}
+    .dlg-intro{text-align:center;font-size:15px;color:#888;line-height:1.7;max-width:600px;margin:0 auto 48px;}
+
+    .dlg-head{display:grid;grid-template-columns:1fr 44px 1fr;gap:0;margin-bottom:14px;padding:0 4px;}
+    .dlg-head p{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;text-align:center;}
+    .dlg-head .h-phys{color:#666;}
+    .dlg-head .h-ment{color:#ef4444;}
+
+    .dlg-row{display:grid;grid-template-columns:1fr 44px 1fr;align-items:stretch;gap:0;margin-bottom:12px;}
+    .dlg-cell{border-radius:14px;padding:18px 16px;display:flex;align-items:center;gap:14px;min-width:0;}
+    .dlg-cell.phys{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);}
+    .dlg-cell.ment{background:linear-gradient(135deg,rgba(220,38,38,.14),rgba(185,28,28,.04));border:1px solid rgba(220,38,38,.32);}
+    .dlg-cell .eq-ico{width:38px;height:38px;flex-shrink:0;color:#6f6f6f;}
+    .dlg-cell.ment .eq-ico{color:#ef4444;}
+    .dlg-cell p{font-size:14px;font-weight:700;line-height:1.4;margin:0;}
+    .dlg-cell.phys p{color:#8a8a8a;}
+    .dlg-cell.ment p{color:#fff;}
+    .dlg-arrow{display:flex;align-items:center;justify-content:center;color:#dc2626;font-size:17px;font-weight:900;}
+
+    @media(max-width:640px){
+      .dlg-head{display:none;}
+      .dlg-row{grid-template-columns:1fr;gap:6px;margin-bottom:22px;}
+      .dlg-cell{border-radius:14px;}
+      .dlg-arrow{transform:rotate(90deg);padding:2px 0;font-size:15px;}
+    }
+
+    .dlg-note{margin-top:36px;padding:26px 24px;background:rgba(220,38,38,.08);border:1px solid rgba(220,38,38,.22);border-radius:16px;text-align:center;}
+    .dlg-note p{font-size:clamp(15px,1.9vw,19px);font-weight:800;color:#fff;line-height:1.6;margin:0;}
+    .dlg-note p span{color:#ef4444;}
+
+    .pain-cta{margin-top:36px;background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.3);border-radius:14px;padding:22px;text-align:center;font-size:16px;font-weight:700;color:#fff;}
+
+    /* ── PHOTO QUOTE BREAK ── */
+    .photo-quote{max-width:1060px;margin:0 auto;padding:72px 24px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+    @media(max-width:720px){.photo-quote{grid-template-columns:1fr;gap:32px;}}
+    .photo-quote img{width:100%;border-radius:20px;display:block;border:2px solid rgba(255,255,255,.08);box-shadow:0 16px 48px rgba(0,0,0,.5);}
+    .photo-quote-text{display:flex;flex-direction:column;justify-content:center;}
+    .photo-quote-text h2{font-size:clamp(28px,3.5vw,50px);font-weight:900;color:#fff;line-height:1.12;}
+    .photo-quote-text h2 span{color:#ef4444;}
+    .photo-quote-text p{font-size:clamp(15px,1.6vw,18px);color:#888;margin-top:18px;max-width:440px;line-height:1.7;}
+
+    /* ── METHOD ── */
+    @keyframes cardGlow{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,0),0 4px 24px rgba(0,0,0,.3)}50%{box-shadow:0 0 32px 4px rgba(220,38,38,.25),0 4px 24px rgba(0,0,0,.3)}}
+    @keyframes numPop{0%{transform:scale(1)}40%{transform:scale(1.3)}70%{transform:scale(.95)}100%{transform:scale(1)}}
+    @keyframes icoFloat{0%,100%{transform:translateY(0) rotate(0deg)}33%{transform:translateY(-8px) rotate(-5deg)}66%{transform:translateY(-4px) rotate(3deg)}}
+
+    .method-wrap{max-width:900px;margin:0 auto;padding:72px 20px;}
+    .method-wrap h2{font-size:clamp(24px,3.5vw,40px);font-weight:900;color:#fff;margin-bottom:48px;line-height:1.15;}
+    .method-wrap h2 span{color:#ef4444;}
+
+    .steps-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+    @media(max-width:600px){.steps-row{grid-template-columns:1fr;}}
+
+    .step-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:36px 24px;text-align:center;transition:transform .35s,border-color .35s,background .35s;position:relative;overflow:hidden;}
+    .step-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(220,38,38,.06),transparent);opacity:0;transition:opacity .35s;border-radius:20px;}
+    .step-card:hover{transform:translateY(-8px);border-color:rgba(220,38,38,.5);background:rgba(220,38,38,.05);}
+    .step-card:hover::before{opacity:1;}
+    .step-card.animate-glow{animation:cardGlow 2s ease-in-out;}
+    .step-num{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#dc2626,#b91c1c);font-size:18px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 4px 16px rgba(220,38,38,.5);}
+    .step-num.pop{animation:numPop .5s ease;}
+    .step-card .s-ico{font-size:44px;margin-bottom:16px;display:block;}
+    .step-card:hover .s-ico{animation:icoFloat 1.5s ease-in-out infinite;}
+    .step-card h3{font-size:17px;font-weight:900;color:#fff;margin-bottom:10px;letter-spacing:.5px;}
+    .step-card p{font-size:13px;color:#777;line-height:1.65;}
+    .step-connector{display:flex;align-items:center;justify-content:center;color:rgba(220,38,38,.4);font-size:22px;padding-top:60px;}
+    @media(max-width:600px){.step-connector{display:none;}}
+
+    /* ── ABOUT (SPLIT) ── */
+    .about-split{max-width:1060px;margin:0 auto;padding:72px 24px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+    @media(max-width:720px){.about-split{grid-template-columns:1fr;gap:36px;}}
+
+    .about-photo{position:relative;}
+    .about-photo img{width:100%;border-radius:24px;object-fit:cover;display:block;border:2px solid rgba(255,255,255,.08);box-shadow:0 24px 64px rgba(0,0,0,.6);}
+    .about-photo-badge{position:absolute;bottom:-16px;right:-16px;background:#111;border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:14px 20px;box-shadow:0 8px 32px rgba(0,0,0,.5);}
+    .about-photo-badge p{font-size:13px;font-weight:800;color:#fff;line-height:1.4;}
+    .about-photo-badge span{font-size:11px;color:#ef4444;font-weight:700;}
+    @media(max-width:720px){.about-photo-badge{right:0;bottom:-12px;}}
+
+    .about-info .sec-label{margin-bottom:14px;}
+    .about-info h2{font-size:clamp(24px,3vw,38px);font-weight:900;color:#fff;margin-bottom:6px;line-height:1.2;}
+    .about-info h2 span{color:#ef4444;}
+    .about-info .coach-title{font-size:14px;color:#ef4444;font-weight:700;margin-bottom:20px;}
+    .about-info p{font-size:15px;color:#888;line-height:1.7;margin-bottom:12px;}
+    .about-quote{border-left:3px solid #ef4444;padding-left:18px;font-size:16px;color:#fff;font-weight:700;font-style:italic;margin-top:20px;line-height:1.55;}
+
+    /* ── TESTIMONIALS ── */
+    .t-bg{background:rgba(255,255,255,.02);padding:72px 20px;}
+    .t-inner{max-width:860px;margin:0 auto;}
+    .t-inner h2{font-size:clamp(24px,3.5vw,40px);font-weight:900;color:#fff;margin-bottom:40px;line-height:1.15;}
+    .t-inner h2 span{color:#ef4444;}
+    .t-vid-inner{max-width:1200px;margin:0 auto;}
+
+    .t-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+    @media(max-width:560px){.t-grid{grid-template-columns:1fr;}}
+    .t-vid-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+    @media(max-width:580px){.t-vid-grid{grid-template-columns:1fr;}}
+    .t-vid-wrap{position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.1);}
+    .t-vid-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+
+    .t-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:28px;}
+    .t-stars{color:#f59e0b;font-size:14px;letter-spacing:2px;margin-bottom:14px;}
+    .t-quote{font-size:14px;color:#ccc;line-height:1.75;font-style:italic;margin-bottom:16px;}
+    .t-name{font-size:13px;font-weight:800;color:#fff;}
+    .t-role{font-size:11px;color:#555;margin-top:2px;}
+
+    /* ── SECOND PHOTO BREAK ── */
+    .photo-side{max-width:1060px;margin:0 auto;padding:72px 24px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+    @media(max-width:720px){.photo-side{grid-template-columns:1fr;}}
+    .photo-side img{width:100%;border-radius:20px;object-fit:cover;max-height:480px;border:2px solid rgba(255,255,255,.08);box-shadow:0 16px 48px rgba(0,0,0,.5);}
+    .photo-side-text .sec-label{margin-bottom:14px;}
+    .photo-side-text h2{font-size:clamp(22px,3vw,36px);font-weight:900;color:#fff;line-height:1.2;margin-bottom:16px;}
+    .photo-side-text h2 span{color:#ef4444;}
+    .photo-side-text p{font-size:15px;color:#888;line-height:1.7;margin-bottom:20px;}
+
+    /* ── FINAL CTA ── */
+    .final-wrap{padding:0 20px 80px;}
+    .final-box{max-width:720px;margin:0 auto;background:linear-gradient(135deg,#1a0000,#2d0000);border:1px solid rgba(220,38,38,.35);border-radius:24px;padding:60px 32px;text-align:center;}
+    .final-box h2{font-size:clamp(22px,3.5vw,38px);font-weight:900;color:#fff;line-height:1.2;margin-bottom:6px;}
+    .final-box h2.red-h{color:#ef4444;}
+    .final-box p{font-size:15px;color:#777;margin:18px 0 32px;line-height:1.6;}
+
+    /* ── MODAL ── */
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:1000;display:none;align-items:center;justify-content:center;padding:16px;}
+    .modal-overlay.open{display:flex;animation:fadeIn .2s ease;}
+    .modal-box{background:#111;border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:36px 32px;max-width:460px;width:100%;animation:scaleIn .25s ease;}
+    .modal-box h3{font-size:22px;font-weight:900;color:#fff;margin-bottom:6px;}
+    .modal-box .modal-sub{font-size:13px;color:#555;margin-bottom:24px;}
+    .field-label{display:block;font-size:12px;font-weight:700;color:#777;margin-bottom:6px;margin-top:16px;}
+    .field-input{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:13px 16px;font-size:15px;color:#fff;outline:none;font-family:inherit;transition:border-color .2s;}
+    .field-input:focus{border-color:#ef4444;}
+    .field-input option{background:#111;color:#fff;}
+    .submit-btn{width:100%;background:linear-gradient(135deg,#dc2626,#b91c1c);color:#fff;font-size:17px;font-weight:800;padding:16px;border-radius:12px;border:none;cursor:pointer;margin-top:20px;font-family:inherit;box-shadow:0 6px 24px rgba(220,38,38,.4);}
+    .modal-close{position:absolute;top:16px;right:20px;background:none;border:none;color:#444;font-size:24px;cursor:pointer;}
+    .success-box{text-align:center;}
+    .success-box .big-emoji{font-size:52px;margin-bottom:12px;}
+    .success-box h2{font-size:22px;font-weight:900;color:#fff;margin-bottom:8px;}
+    .success-box p{font-size:14px;color:#888;margin-bottom:8px;}
+    @media(max-width:480px){.modal-box{padding:28px 20px;}}
+
+    footer{text-align:center;padding:24px 20px 80px;border-top:1px solid rgba(255,255,255,.05);}
+    footer p{font-size:12px;color:#2a2a2a;}
+    footer a{color:#333;}
+
+    /* ── HERO DATE & COUNTDOWN ── */
+    .hero-event-date{font-size:14px;font-weight:700;color:#ccc;margin-bottom:20px;letter-spacing:.3px;}
+    .hero-event-date span{color:#ef4444;}
+    .hero-proof{font-size:12px;color:#555;margin-bottom:24px;}
+    .hero-proof strong{color:#888;}
+
+    .countdown-wrap{display:flex;gap:12px;justify-content:center;margin:24px 0 30px;}
+    .cd-box{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px 18px;min-width:70px;text-align:center;}
+    .cd-num{font-size:30px;font-weight:900;color:#ef4444;line-height:1;display:block;}
+    .cd-label{font-size:10px;color:#555;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-top:4px;display:block;}
+    @media(max-width:400px){.cd-box{padding:10px 12px;min-width:58px;}.cd-num{font-size:24px;}}
+
+    /* ── WHAT YOU'LL LEARN ── */
+    /* ── PAIN BEHIND PAIN ── */
+    .pbp-wrap{max-width:1100px;margin:0 auto;padding:72px 20px;}
+    .pbp-wrap h2{font-size:clamp(28px,4vw,52px);font-weight:900;color:#fff;margin-bottom:14px;line-height:1.1;text-align:center;}
+    .pbp-wrap h2 span{color:#ef4444;}
+    .pbp-sub{text-align:center;color:#666;font-size:16px;margin-bottom:56px;max-width:600px;margin-left:auto;margin-right:auto;}
+    .pbp-stack{display:flex;flex-direction:column;gap:28px;}
+    .pbp-card{border-radius:24px;overflow:hidden;display:grid;grid-template-columns:380px 1fr;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);}
+    @media(max-width:780px){.pbp-card{grid-template-columns:1fr;}}
+    .pbp-img{position:relative;overflow:hidden;min-height:320px;}
+    .pbp-img img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85;}
+    .pbp-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,transparent 60%,rgba(10,10,10,.95));}
+    @media(max-width:780px){.pbp-img{min-height:220px;} .pbp-img-overlay{background:linear-gradient(to bottom,transparent 60%,rgba(10,10,10,.95));}}
+    .pbp-cascade{padding:32px 36px;display:flex;flex-direction:column;gap:0;justify-content:center;}
+    @media(max-width:780px){.pbp-cascade{padding:24px 20px;}}
+    .pbp-row{padding:18px 20px;border-radius:14px;margin-bottom:0;}
+    .pbp-row .ico{font-size:26px;flex-shrink:0;margin-top:2px;}
+    .pbp-row-inner{display:flex;align-items:flex-start;gap:14px;}
+    .pbp-row p{font-size:14px;font-weight:700;line-height:1.5;}
+    .pbp-surface{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);}
+    .pbp-surface p{color:#bbb;}
+    .pbp-arrow{text-align:center;padding:8px 0;color:#333;font-size:20px;}
+    .pbp-deeper{background:rgba(220,38,38,.07);border:1px solid rgba(220,38,38,.2);}
+    .pbp-deeper p{color:#fca5a5;}
+    .pbp-deepest{background:rgba(220,38,38,.16);border:2px solid rgba(220,38,38,.4);}
+    .pbp-deepest p{color:#ef4444;font-size:15px;}
+    .pbp-label{font-size:10px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:4px;display:block;}
+    .pbp-surface .pbp-label{color:#555;}
+    .pbp-deeper .pbp-label{color:rgba(220,38,38,.6);}
+    .pbp-deepest .pbp-label{color:#ef4444;}
+
+    /* ── MIND RESULTS ── */
+    .mindresult-wrap{max-width:900px;margin:0 auto;padding:72px 20px;}
+    .mindresult-wrap h2{font-size:clamp(24px,3.5vw,40px);font-weight:900;color:#fff;margin-bottom:12px;line-height:1.15;text-align:center;}
+    .mindresult-wrap h2 span{color:#ef4444;}
+    .mindresult-sub{text-align:center;color:#666;font-size:15px;margin-bottom:48px;}
+    .gym-compare{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:48px;}
+    @media(max-width:640px){.gym-compare{grid-template-columns:1fr;}}
+    .gc-box{border-radius:20px;padding:28px 24px;}
+    .gc-box.known{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);}
+    .gc-box.mental{background:linear-gradient(135deg,rgba(220,38,38,.12),rgba(185,28,28,.04));border:2px solid rgba(220,38,38,.35);}
+    .gc-box h3{font-size:14px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px;}
+    .gc-box.known h3{color:#555;}
+    .gc-box.mental h3{color:#ef4444;}
+    .gc-chain{display:flex;flex-direction:column;gap:0;}
+    .gc-step{display:flex;align-items:center;gap:12px;padding:10px 0;}
+    .gc-step .gs-ico{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+    .gc-box.known .gs-ico{background:rgba(255,255,255,.07);}
+    .gc-box.mental .gs-ico{background:rgba(220,38,38,.15);}
+    .gc-step p{font-size:13px;font-weight:700;color:#ccc;line-height:1.3;}
+    .gc-box.mental .gc-step p{color:#fff;}
+    .gc-arrow{text-align:center;color:#333;font-size:16px;padding:2px 0;}
+    .gc-box.mental .gc-arrow{color:rgba(220,38,38,.4);}
+    .gc-result{margin-top:14px;padding:14px 16px;border-radius:12px;text-align:center;font-size:13px;font-weight:800;}
+    .gc-box.known .gc-result{background:rgba(255,255,255,.06);color:#666;}
+    .gc-box.mental .gc-result{background:rgba(220,38,38,.2);color:#ef4444;}
+    .timeline-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+    @media(max-width:640px){.timeline-grid{grid-template-columns:repeat(2,1fr);}}
+    .tl-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px 14px;text-align:center;}
+    .tl-week{font-size:11px;font-weight:800;letter-spacing:1.5px;color:#ef4444;text-transform:uppercase;margin-bottom:8px;}
+    .tl-ico{font-size:32px;margin-bottom:10px;display:block;}
+    .tl-card p{font-size:12px;color:#888;font-weight:600;line-height:1.45;}
+
+    .learn-wrap{max-width:860px;margin:0 auto;padding:72px 20px;}
+    .learn-wrap h2{font-size:clamp(24px,3.5vw,40px);font-weight:900;color:#fff;margin-bottom:40px;line-height:1.15;}
+    .learn-wrap h2 span{color:#ef4444;}
+    .learn-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    @media(max-width:560px){.learn-grid{grid-template-columns:1fr;}}
+    .learn-item{display:flex;flex-direction:column;align-items:flex-start;gap:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:24px;}
+    .learn-item .l-ico{font-size:22px;flex-shrink:0;margin-top:2px;}
+    .learn-item p{font-size:14px;color:#ccc;line-height:1.55;font-weight:600;}
+    .learn-item p strong{color:#fff;display:block;margin-bottom:3px;font-size:15px;}
+    .learn-item svg{width:100%;height:90px;display:block;margin-bottom:4px;}
+
+    /* ── FAQ ── */
+    .faq-wrap{max-width:760px;margin:0 auto;padding:72px 20px;}
+    .faq-wrap h2{font-size:clamp(24px,3.5vw,40px);font-weight:900;color:#fff;margin-bottom:40px;line-height:1.15;text-align:center;}
+    .faq-wrap h2 span{color:#ef4444;}
+    .faq-item{border:1px solid rgba(255,255,255,.08);border-radius:14px;margin-bottom:12px;overflow:hidden;}
+    .faq-q{width:100%;background:rgba(255,255,255,.04);border:none;color:#fff;font-family:inherit;font-size:15px;font-weight:700;padding:20px 24px;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .2s;}
+    .faq-q:hover{background:rgba(255,255,255,.07);}
+    .faq-q .faq-arrow{color:#ef4444;font-size:18px;transition:transform .3s;flex-shrink:0;}
+    .faq-q.open .faq-arrow{transform:rotate(180deg);}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease;padding:0 24px;}
+    .faq-a.open{max-height:300px;padding:0 24px 20px;}
+    .faq-a p{font-size:14px;color:#888;line-height:1.7;}
+
+    /* ── LIGHT SECTIONS ── */
+    section.s-light{background:#faf5f3;}
+    section.s-light .divider{border-top-color:rgba(0,0,0,.08);}
+
+    /* headings & text */
+    section.s-light h2,section.s-light h3{color:#160505;}
+    section.s-light h2 span{color:#dc2626;}
+    section.s-light p{color:#5a4040;}
+    section.s-light .sec-label{color:#dc2626;}
+
+    /* gym vs cards */
+    section.s-light .gym-vs-wrap h2{color:#160505;}
+    section.s-light .vs-card.body-side{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.1);}
+    section.s-light .vs-card.body-side h3{color:#3a3030;}
+    section.s-light .vs-card.body-side p{color:#4a4040;}
+    section.s-light .vs-card.mind-side p{color:#3a1a1a;}
+    section.s-light .vs-new{background:rgba(220,38,38,.15);border-color:rgba(220,38,38,.3);color:#c0150f;}
+    section.s-light .vs-q{background:rgba(220,38,38,.07);border-color:rgba(220,38,38,.2);}
+    section.s-light .vs-q p{color:#160505;}
+    section.s-light .vs-q p span{color:#dc2626;}
+
+    /* learn items */
+    section.s-light .learn-wrap h2{color:#160505;}
+    section.s-light .learn-item{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.07);}
+    section.s-light .learn-item p{color:#666;}
+    section.s-light .learn-item p strong{color:#160505;}
+
+    /* about split */
+    section.s-light .about-info h2{color:#160505;}
+    section.s-light .about-info p{color:#5a4040;}
+    section.s-light .about-quote{color:#160505;}
+    section.s-light .about-photo-badge{background:#fff;border-color:rgba(0,0,0,.1);}
+    section.s-light .about-photo-badge p{color:#160505;}
+    section.s-light .about-photo img{border-color:rgba(0,0,0,.1);}
+    section.s-light .about-photo-badge span{color:#dc2626;}
+    section.s-light .photo-side img{border-color:rgba(0,0,0,.1);}
+    section.s-light .photo-side-text h2{color:#160505;}
+    section.s-light .photo-side-text p{color:#5a4040;}
+
+    /* faq */
+    section.s-light .faq-wrap h2{color:#160505;}
+    section.s-light .faq-item{border-color:rgba(0,0,0,.1);}
+    section.s-light .faq-q{background:rgba(0,0,0,.03);color:#160505;}
+    section.s-light .faq-q:hover{background:rgba(0,0,0,.06);}
+    section.s-light .faq-a p{color:#666;}
+
+    /* cta-note inside light */
+    section.s-light .cta-note{color:#999;}
+
+    /* ── STICKY BAR ── */
+    .sticky-bar{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#111,#1a0000);border-top:1px solid rgba(220,38,38,.3);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;z-index:999;transform:translateY(100%);transition:transform .4s ease;box-shadow:0 -8px 32px rgba(0,0,0,.6);}
+    .sticky-bar.visible{transform:translateY(0);}
+    .sticky-bar-text{font-size:13px;color:#ccc;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .sticky-bar-text span{color:#ef4444;}
+    .sticky-bar-btn{background:linear-gradient(135deg,#dc2626,#b91c1c);color:#fff;font-size:14px;font-weight:800;padding:11px 24px;border-radius:10px;border:none;cursor:pointer;white-space:nowrap;flex-shrink:0;font-family:inherit;}
+    @media(max-width:480px){.sticky-bar-text{display:none;}.sticky-bar{justify-content:center;}}
+
+    /* ── VIDEO LABEL ── */
+    .video-label{text-align:center;font-size:13px;font-weight:700;color:#555;margin-bottom:12px;letter-spacing:.3px;}
+    .video-label span{color:#ef4444;}
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  🔥 FREE Live Masterclass — <span>Sunday 3rd Aug · 10 AM UK · Limited Spots Remaining</span> — Register Before It's Full
+</div>
+
+<!-- HERO -->
+<div class="hero-wrap">
+  <div class="eyebrow">Free Live Masterclass · For Indian Professionals in UK &amp; Europe</div>
+  <p class="hero-event-date">📅 <span>Sunday, 3rd August 2026</span> · 10:00 AM UK Time · Online · 90 Minutes</p>
+  <p class="hero-line1">Your Body Has a Gym.</p>
+  <h1 class="hero-line2">Your Mind Deserves One Too.</h1>
+  <p class="hero-sub">A 21-day science-backed Mental Gym that helps ambitious professionals identify and retrain the Mental Rules that quietly fuel overthinking, self-doubt, people-pleasing and emotional exhaustion—so you can respond with greater confidence, clarity and calm.</p>
+</div>
+
+<!-- VIDEO -->
+<p class="video-label reveal">▶ <span>Watch this first — Rachanaa explains exactly who this is for</span></p>
+<div class="video-wrap reveal">
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/YeqevyrsdWM?rel=0" title="Rachanaa Tulsyan — Mental Gym" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- COUNTDOWN + CTA BELOW VIDEO -->
+<div style="text-align:center;padding:40px 20px 56px;max-width:720px;margin:0 auto;">
+  <p class="hero-proof reveal">🔥 <strong>Professionals</strong> from healthcare, finance, technology, education and business have joined Mental Gym</p>
+  <div class="countdown-wrap reveal">
+    <div class="cd-box"><span class="cd-num" id="cd-d">00</span><span class="cd-label">Days</span></div>
+    <div class="cd-box"><span class="cd-num" id="cd-h">00</span><span class="cd-label">Hours</span></div>
+    <div class="cd-box"><span class="cd-num" id="cd-m">00</span><span class="cd-label">Mins</span></div>
+    <div class="cd-box"><span class="cd-num" id="cd-s">00</span><span class="cd-label">Secs</span></div>
+  </div>
+  <button class="cta-btn reveal" onclick="openModal()">👉 Join Mental Gym</button>
+  <p class="cta-note" style="margin-top:11px;">✅ Instant confirmation · Free WhatsApp group access · Limited Spots</p>
+</div>
+
+<!-- HOW YOUR BRAIN LEARNS — TIMELINE -->
+<div style="max-width:760px;margin:0 auto;padding:64px 24px 72px;">
+  <p class="sec-label reveal" style="text-align:center;">The Process</p>
+  <h2 class="reveal" style="font-size:clamp(26px,4vw,46px);font-weight:900;color:#fff;text-align:center;line-height:1.15;margin-bottom:56px;">How Your Brain <span style="color:#ef4444;">Learns</span></h2>
+
+  <!-- Timeline -->
+  <div style="position:relative;display:flex;flex-direction:column;gap:0;">
+
+    <!-- Vertical line -->
+    <div style="position:absolute;left:28px;top:20px;bottom:20px;width:2px;background:linear-gradient(to bottom,rgba(239,68,68,0.6),rgba(239,68,68,0.15));border-radius:2px;"></div>
+
+    <!-- Day 1–7 -->
+    <div class="reveal" style="display:flex;gap:24px;align-items:flex-start;padding-bottom:40px;">
+      <div style="flex-shrink:0;width:58px;height:58px;border-radius:50%;background:rgba(239,68,68,0.12);border:2px solid rgba(239,68,68,0.5);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
+        <span style="font-size:13px;font-weight:900;color:#ef4444;line-height:1.1;text-align:center;">Day<br>1–7</span>
+      </div>
+      <div style="padding-top:10px;">
+        <p style="font-size:18px;font-weight:800;color:#fff;margin-bottom:6px;">Notice the patterns.</p>
+        <p style="font-size:15px;color:#aaa;line-height:1.7;margin:0;">Notice the patterns you've been running automatically.</p>
+      </div>
+    </div>
+
+    <!-- Day 8–14 -->
+    <div class="reveal" style="display:flex;gap:24px;align-items:flex-start;padding-bottom:40px;">
+      <div style="flex-shrink:0;width:58px;height:58px;border-radius:50%;background:rgba(239,68,68,0.12);border:2px solid rgba(239,68,68,0.5);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
+        <span style="font-size:13px;font-weight:900;color:#ef4444;line-height:1.1;text-align:center;">Day<br>8–14</span>
+      </div>
+      <div style="padding-top:10px;">
+        <p style="font-size:18px;font-weight:800;color:#fff;margin-bottom:6px;">Interrupt and reinforce.</p>
+        <p style="font-size:15px;color:#aaa;line-height:1.7;margin:0;">Practise interrupting old responses and reinforcing healthier ones.</p>
+      </div>
+    </div>
+
+    <!-- Day 15–21 -->
+    <div class="reveal" style="display:flex;gap:24px;align-items:flex-start;">
+      <div style="flex-shrink:0;width:58px;height:58px;border-radius:50%;background:rgba(239,68,68,0.2);border:2px solid #ef4444;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
+        <span style="font-size:13px;font-weight:900;color:#ef4444;line-height:1.1;text-align:center;">Day<br>15–21</span>
+      </div>
+      <div style="padding-top:10px;">
+        <p style="font-size:18px;font-weight:800;color:#fff;margin-bottom:6px;">New habits take hold.</p>
+        <p style="font-size:15px;color:#aaa;line-height:1.7;margin:0;">Begin responding with greater calm, confidence, and consistency as new habits are strengthened through repetition.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<section class="s-light">
+<hr class="divider"/>
+
+<!-- GYM VS / REFRAME -->
+<div class="gym-vs-wrap">
+  <p class="sec-label reveal" style="text-align:center;">The Big Idea</p>
+  <h2 class="reveal">Here's What <span>Nobody Told You.</span></h2>
+  <div class="vs-grid">
+    <div class="vs-card body-side reveal-left">
+      <svg class="gym-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="4" y="32" width="30" height="8" rx="4"/><path d="M9 36h20"/><path d="M32 33L38 14"/><rect x="31" y="7" width="13" height="8" rx="2.5"/>
+      </svg>
+      <h3>What You've Been Told</h3>
+      <p>Work harder. Think positive. Push through. Change your job, your city, your relationship. Eventually it will feel better.</p>
+    </div>
+    <div class="vs-center reveal"><div style="font-size:28px;font-weight:900;">VS</div></div>
+    <div class="vs-card mind-side reveal-right">
+      <svg class="gym-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 20v8"/><path d="M8 15v18"/><path d="M13 19v10"/><path d="M35 19v10"/><path d="M40 15v18"/><path d="M45 20v8"/><path d="M13 24h22"/>
+      </svg>
+      <h3>What's Actually True</h3>
+      <p>What you're experiencing is mental conditioning. Old programmes running since childhood. No circumstance change can reach them. Only training will.</p>
+      <span class="vs-new">THE TRUTH</span>
+    </div>
+  </div>
+  <div class="vs-q reveal">
+    <p>Every time you can't switch off — that's conditioning.<br><span>Every time you seek approval before trusting yourself — that's conditioning.</span><br>No app, holiday, or promotion will change it. Only training will.</p>
+  </div>
+</div>
+
+<hr class="divider"/>
+</section>
+
+<!-- PAIN SECTION -->
+<div class="pain-wrap">
+  <p class="sec-label reveal">The Mirror</p>
+  <h2 class="reveal">You've Achieved Everything.<br><span>So Why Does It Still Feel Like This?</span></h2>
+  <p style="color:#666;font-size:15px;margin-bottom:36px;" class="reveal">Read these slowly. See which ones feel familiar.</p>
+  <div class="pain-grid">
+    <div class="pain-card reveal"><svg class="plate-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="6"/><path d="M24 7v6"/><path d="M24 35v6"/><path d="M7 24h6"/><path d="M35 24h6"/></svg><p>You wake up already tired — even after 8 hours of sleep</p></div>
+    <div class="pain-card reveal"><svg class="plate-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="6"/><path d="M24 7v6"/><path d="M24 35v6"/><path d="M7 24h6"/><path d="M35 24h6"/></svg><p>Work ends at 6pm. But your mind never clocks out</p></div>
+    <div class="pain-card reveal"><svg class="plate-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="6"/><path d="M24 7v6"/><path d="M24 35v6"/><path d="M7 24h6"/><path d="M35 24h6"/></svg><p>One bad email can ruin your entire day</p></div>
+    <div class="pain-card reveal"><svg class="plate-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="6"/><path d="M24 7v6"/><path d="M24 35v6"/><path d="M7 24h6"/><path d="M35 24h6"/></svg><p>You snap at the people you love — and hate yourself for it</p></div>
+    <div class="pain-card reveal"><svg class="plate-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="6"/><path d="M24 7v6"/><path d="M24 35v6"/><path d="M7 24h6"/><path d="M35 24h6"/></svg><p>You've changed jobs, cities, relationships — but the heaviness followed you</p></div>
+    <div class="pain-card reveal"><svg class="plate-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="6"/><path d="M24 7v6"/><path d="M24 35v6"/><path d="M7 24h6"/><path d="M35 24h6"/></svg><p>Sunday evenings feel like dread, not peace</p></div>
+    <div class="pain-card reveal"><svg class="plate-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="6"/><path d="M24 7v6"/><path d="M24 35v6"/><path d="M7 24h6"/><path d="M35 24h6"/></svg><p>You've tried meditation. Journaling. Self-help books. Still the same patterns</p></div>
+    <div class="pain-card reveal"><svg class="plate-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="6"/><path d="M24 7v6"/><path d="M24 35v6"/><path d="M7 24h6"/><path d="M35 24h6"/></svg><p>You feel like you're performing your life — not actually living it</p></div>
+  </div>
+  <div class="pain-cta reveal">
+    If even 3 of these hit close to home — this page was written for you.
+  </div>
+</div>
+
+<!-- SECTION 3 — WHY I CREATED MENTAL GYM -->
+<div style="max-width:760px;margin:0 auto;padding:72px 24px;">
+  <p class="sec-label reveal" style="text-align:center;">From Rachanaa</p>
+  <h2 class="reveal" style="font-size:clamp(28px,4vw,50px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:36px;">Why I Created<br><span style="color:#ef4444;">Mental Gym</span></h2>
+
+  <!-- Photo -->
+  <div class="reveal" style="text-align:center;margin-bottom:40px;">
+    <img src="rachana-about.jpg" alt="Rachanaa Tulsyan" style="width:180px;height:180px;object-fit:cover;object-position:top;border-radius:50%;border:3px solid rgba(239,68,68,0.4);display:inline-block;"/>
+  </div>
+
+  <p class="reveal" style="font-size:19px;font-weight:700;color:#fff;line-height:1.4;margin-bottom:10px;">Hi, I'm Rachanaa.</p>
+
+  <p class="reveal" style="font-size:16px;color:#888;line-height:1.85;margin-bottom:16px;">For years I believed the next achievement would finally make me feel lighter.</p>
+
+  <p class="reveal" style="font-size:16px;color:#888;line-height:1.85;margin-bottom:16px;">I changed countries.<br>I changed careers.<br>I changed relationships.</p>
+
+  <p class="reveal" style="font-size:16px;color:#888;line-height:1.85;margin-bottom:16px;">From the outside, life looked successful.</p>
+
+  <p class="reveal" style="font-size:16px;color:#888;line-height:1.85;margin-bottom:28px;">But inside, my mind was still running the same exhausting patterns.</p>
+
+  <p class="reveal" style="font-size:16px;color:#888;line-height:1.85;margin-bottom:28px;">That experience led me to study clinical hypnotherapy, subconscious learning, and behavioural change. What I discovered changed not only my own life, but the lives of hundreds of professionals I've worked with.</p>
+
+  <div class="reveal" style="border-left:3px solid #ef4444;padding:18px 24px;background:rgba(220,38,38,.07);border-radius:0 12px 12px 0;margin-bottom:0;">
+    <p style="font-size:16px;color:#ccc;line-height:1.7;margin-bottom:8px;">Mental Gym was born from one simple belief:</p>
+    <p style="font-size:19px;font-weight:800;color:#fff;line-height:1.5;">Your mind deserves training just as much as your body does.</p>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- SECTION 5 — WHAT IT IS NOT / IS -->
+<section class="s-light">
+<div style="max-width:860px;margin:0 auto;padding:72px 24px;">
+  <p class="sec-label reveal" style="text-align:center;">Let's Be Clear</p>
+  <h2 class="reveal" style="font-size:clamp(26px,3.5vw,44px);font-weight:900;color:#160505;line-height:1.15;text-align:center;margin-bottom:48px;">Mental Gym Is <span style="color:#dc2626;">NOT…</span></h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:48px;" class="reveal">
+    <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:16px 18px;">
+      <span style="font-size:20px;flex-shrink:0;">❌</span><p style="font-size:14px;color:#5a4040;font-weight:600;line-height:1.5;">A meditation app (you've already tried those)</p>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:16px 18px;">
+      <span style="font-size:20px;flex-shrink:0;">❌</span><p style="font-size:14px;color:#5a4040;font-weight:600;line-height:1.5;">Motivational content (feels good, changes nothing)</p>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:16px 18px;">
+      <span style="font-size:20px;flex-shrink:0;">❌</span><p style="font-size:14px;color:#5a4040;font-weight:600;line-height:1.5;">Therapy (we're not diagnosing — we're training)</p>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:16px 18px;">
+      <span style="font-size:20px;flex-shrink:0;">❌</span><p style="font-size:14px;color:#5a4040;font-weight:600;line-height:1.5;">A 3-hour seminar you forget by Monday</p>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:16px 18px;grid-column:1/-1;">
+      <span style="font-size:20px;flex-shrink:0;">❌</span><p style="font-size:14px;color:#5a4040;font-weight:600;line-height:1.5;">Another 'just think positive' course</p>
+    </div>
+  </div>
+
+  <h2 class="reveal" style="font-size:clamp(26px,3.5vw,44px);font-weight:900;color:#160505;line-height:1.15;text-align:center;margin-bottom:32px;">Mental Gym <span style="color:#dc2626;">IS…</span></h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;" class="reveal">
+    <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(220,38,38,.06);border:1px solid rgba(220,38,38,.2);border-radius:12px;padding:16px 18px;">
+      <span style="font-size:20px;flex-shrink:0;">✅</span><p style="font-size:14px;color:#3a1a1a;font-weight:600;line-height:1.5;">Retraining automatic mental patterns — targeting the root, not the symptom</p>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(220,38,38,.06);border:1px solid rgba(220,38,38,.2);border-radius:12px;padding:16px 18px;">
+      <span style="font-size:20px;flex-shrink:0;">✅</span><p style="font-size:14px;color:#3a1a1a;font-weight:600;line-height:1.5;">Progressive daily training — each session builds on the last</p>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(220,38,38,.06);border:1px solid rgba(220,38,38,.2);border-radius:12px;padding:16px 18px;">
+      <span style="font-size:20px;flex-shrink:0;">✅</span><p style="font-size:14px;color:#3a1a1a;font-weight:600;line-height:1.5;">Built specifically for high-achieving professionals</p>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(220,38,38,.06);border:1px solid rgba(220,38,38,.2);border-radius:12px;padding:16px 18px;">
+      <span style="font-size:20px;flex-shrink:0;">✅</span><p style="font-size:14px;color:#3a1a1a;font-weight:600;line-height:1.5;">Results you can feel in daily life — not just during the session</p>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(220,38,38,.06);border:1px solid rgba(220,38,38,.2);border-radius:12px;padding:16px 18px;grid-column:1/-1;">
+      <span style="font-size:20px;flex-shrink:0;">✅</span><p style="font-size:14px;color:#3a1a1a;font-weight:600;line-height:1.5;">The missing piece between where you are and where you want to be</p>
+    </div>
+  </div>
+</div>
+<hr class="divider"/>
+</section>
+
+
+<section class="s-light">
+<hr class="divider"/>
+
+<!-- ABOUT SPLIT -->
+<div class="about-split">
+  <div class="about-photo reveal-left">
+    <img src="rachana-about.jpg" alt="Rachanaa Tulsyan" style="max-height:600px;"/>
+    <div class="about-photo-badge">
+      <p>Rapid Quantum Shift Academy</p>
+      <span>risebeyondtoxic.com</span>
+    </div>
+  </div>
+  <div class="about-info reveal-right">
+    <p class="sec-label">Meet Rachanaa</p>
+    <h2>Why Thousands <span>Trust Rachanaa</span></h2>
+
+    <!-- Credential cards -->
+    <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:32px;">
+      <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:12px;padding:16px 20px;">
+        <p style="font-size:13px;font-weight:800;color:#dc2626;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px;">Clinical Hypnotherapist</p>
+        <p style="font-size:14px;color:#3a2020;line-height:1.6;margin:0;">Certified in Clinical Hypnotherapy, helping people create lasting change by working with the subconscious mind — the place where thoughts, emotions, habits, and behaviours are formed.</p>
+      </div>
+      <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:12px;padding:16px 20px;">
+        <p style="font-size:13px;font-weight:800;color:#dc2626;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px;">Subconscious Behaviour Change Specialist</p>
+        <p style="font-size:14px;color:#3a2020;line-height:1.6;margin:0;">Specialising in helping people break free from self-doubt, people-pleasing, overthinking, and limiting beliefs by changing the patterns beneath them — not just managing the symptoms.</p>
+      </div>
+      <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:12px;padding:16px 20px;">
+        <p style="font-size:13px;font-weight:800;color:#dc2626;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px;">Science-Backed Mental Training</p>
+        <p style="font-size:14px;color:#3a2020;line-height:1.6;margin:0;">Mental Gym™️ combines principles of clinical hypnotherapy, neuroscience, neuroplasticity, and behavioural psychology into a structured daily practice designed to create lasting mental and emotional change.</p>
+      </div>
+      <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:12px;padding:16px 20px;">
+        <p style="font-size:13px;font-weight:800;color:#dc2626;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px;">Trusted Worldwide</p>
+        <p style="font-size:14px;color:#3a2020;line-height:1.6;margin:0;">Helping ambitious professionals across the UK, Europe, the UAE, India, and beyond build greater confidence, emotional resilience, and inner peace.</p>
+      </div>
+      <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:12px;padding:16px 20px;">
+        <p style="font-size:13px;font-weight:800;color:#dc2626;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px;">Founder of Mental Gym™️</p>
+        <p style="font-size:14px;color:#3a2020;line-height:1.6;margin:0;">A unique mental fitness system designed to train the mind with the same consistency and structure that a physical gym trains the body.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+</section>
+
+<!-- SCIENCE SECTION -->
+<div style="max-width:860px;margin:0 auto;padding:72px 24px;">
+  <p class="sec-label reveal" style="text-align:center;">The Science</p>
+  <h2 class="reveal" style="font-size:clamp(28px,4vw,50px);font-weight:900;color:#fff;line-height:1.15;text-align:center;margin-bottom:12px;">It's not magic.</h2>
+  <h2 class="reveal" style="font-size:clamp(28px,4vw,50px);font-weight:900;color:#ef4444;line-height:1.15;text-align:center;margin-bottom:48px;">It's how the brain learns.</h2>
+
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;" class="reveal">
+
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:28px 24px;">
+      <p style="font-size:13px;font-weight:800;color:#ef4444;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;">Neuroplasticity</p>
+      <p style="font-size:15px;font-weight:700;color:#fff;margin-bottom:10px;">Your brain changes through repetition.</p>
+      <p style="font-size:13px;color:#888;line-height:1.7;">Just like muscles strengthen through repeated workouts, neural pathways become stronger every time they're used.</p>
+    </div>
+
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:28px 24px;">
+      <p style="font-size:13px;font-weight:800;color:#ef4444;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;">Automatic Patterns</p>
+      <p style="font-size:15px;font-weight:700;color:#fff;margin-bottom:10px;">Around 95% of daily behaviour is automatic.</p>
+      <p style="font-size:13px;color:#888;line-height:1.7;">Mental Gym focuses on retraining these automatic patterns instead of relying on willpower alone.</p>
+    </div>
+
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:28px 24px;">
+      <p style="font-size:13px;font-weight:800;color:#ef4444;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;">Clinical Hypnotherapy</p>
+      <p style="font-size:15px;font-weight:700;color:#fff;margin-bottom:10px;">A focused state that bypasses resistance.</p>
+      <p style="font-size:13px;color:#888;line-height:1.7;">Clinical hypnosis creates a focused state of attention that makes it easier to practise new mental responses and interrupt unhelpful automatic patterns.</p>
+    </div>
+
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:28px 24px;">
+      <p style="font-size:13px;font-weight:800;color:#ef4444;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;">Daily Repetition</p>
+      <p style="font-size:15px;font-weight:700;color:#fff;margin-bottom:10px;">Real change comes from consistent practice.</p>
+      <p style="font-size:13px;color:#888;line-height:1.7;">Not a single motivational session. That's why Mental Gym is structured as short daily training rather than one-off inspiration.</p>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- DESIGNED LIKE A GYM -->
+<div class="dlg-wrap">
+  <p class="sec-label reveal" style="text-align:center;">The Method</p>
+  <h2 class="reveal">Designed Like a <span>Gym</span>.</h2>
+  <p class="dlg-intro reveal">You already know how physical training works. Mental Gym runs on exactly the same principles — same structure, same progression, same reason it sticks.</p>
+
+  <div class="dlg-head reveal">
+    <p class="h-phys">Physical Gym</p>
+    <p></p>
+    <p class="h-ment">Mental Gym</p>
+  </div>
+
+  <!-- Warm-up -->
+  <div class="dlg-row reveal">
+    <div class="dlg-cell phys">
+      <svg class="eq-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="24" cy="28" r="13"/><path d="M19 7h10"/><path d="M24 7v5"/><path d="M24 28v-8"/><path d="M34 18l3-3"/>
+      </svg>
+      <p>Warm-up</p>
+    </div>
+    <div class="dlg-arrow">→</div>
+    <div class="dlg-cell ment">
+      <svg class="eq-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="24" cy="28" r="13"/><path d="M19 7h10"/><path d="M24 7v5"/><path d="M24 28v-8"/><path d="M34 18l3-3"/>
+      </svg>
+      <p>Mental warm-up</p>
+    </div>
+  </div>
+
+  <!-- Weights -->
+  <div class="dlg-row reveal">
+    <div class="dlg-cell phys">
+      <svg class="eq-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M6 20v8"/><path d="M11 15v18"/><path d="M37 15v18"/><path d="M42 20v8"/><path d="M11 24h26"/>
+      </svg>
+      <p>Weights</p>
+    </div>
+    <div class="dlg-arrow">→</div>
+    <div class="dlg-cell ment">
+      <svg class="eq-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M6 20v8"/><path d="M11 15v18"/><path d="M37 15v18"/><path d="M42 20v8"/><path d="M11 24h26"/>
+      </svg>
+      <p>Mental reps</p>
+    </div>
+  </div>
+
+  <!-- Progressive overload -->
+  <div class="dlg-row reveal">
+    <div class="dlg-cell phys">
+      <svg class="eq-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true">
+        <rect x="6" y="20" width="7" height="10" rx="2"/><rect x="18" y="14" width="8" height="22" rx="2.5"/><rect x="31" y="8" width="9" height="34" rx="3"/>
+      </svg>
+      <p>Progressive overload</p>
+    </div>
+    <div class="dlg-arrow">→</div>
+    <div class="dlg-cell ment">
+      <svg class="eq-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true">
+        <rect x="6" y="20" width="7" height="10" rx="2"/><rect x="18" y="14" width="8" height="22" rx="2.5"/><rect x="31" y="8" width="9" height="34" rx="3"/>
+      </svg>
+      <p>Mental challenges</p>
+    </div>
+  </div>
+
+  <!-- Muscle growth -->
+  <div class="dlg-row reveal">
+    <div class="dlg-cell phys">
+      <svg class="eq-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M18.6 16.4c-.9-1.7-1.4-3.6-1.4-5.6C17.2 6.6 20.2 3.5 24 3.5s6.8 3.1 6.8 7.3c0 2-.5 3.9-1.4 5.6"/>
+        <path d="M18.4 19.6C12.2 22.7 8.2 29 8.2 35.2c0 5.1 3.1 8.8 7.6 8.8h16.4c4.5 0 7.6-3.7 7.6-8.8 0-6.2-4-12.5-10.2-15.6z"/>
+      </svg>
+      <p>Muscle growth</p>
+    </div>
+    <div class="dlg-arrow">→</div>
+    <div class="dlg-cell ment">
+      <svg class="eq-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M18.6 16.4c-.9-1.7-1.4-3.6-1.4-5.6C17.2 6.6 20.2 3.5 24 3.5s6.8 3.1 6.8 7.3c0 2-.5 3.9-1.4 5.6"/>
+        <path d="M18.4 19.6C12.2 22.7 8.2 29 8.2 35.2c0 5.1 3.1 8.8 7.6 8.8h16.4c4.5 0 7.6-3.7 7.6-8.8 0-6.2-4-12.5-10.2-15.6z"/>
+      </svg>
+      <p>Stronger emotional resilience</p>
+    </div>
+  </div>
+
+  <!-- Recovery -->
+  <div class="dlg-row reveal">
+    <div class="dlg-cell phys">
+      <svg class="eq-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="19" y="5" width="10" height="6" rx="2"/><path d="M21 11v3"/><path d="M27 11v3"/><rect x="14" y="14" width="20" height="29" rx="6"/><path d="M14 24h20"/>
+      </svg>
+      <p>Recovery</p>
+    </div>
+    <div class="dlg-arrow">→</div>
+    <div class="dlg-cell ment">
+      <svg class="eq-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="19" y="5" width="10" height="6" rx="2"/><path d="M21 11v3"/><path d="M27 11v3"/><rect x="14" y="14" width="20" height="29" rx="6"/><path d="M14 24h20"/>
+      </svg>
+      <p>Consolidation of new patterns</p>
+    </div>
+  </div>
+
+  <!-- Consistency -->
+  <div class="dlg-row reveal">
+    <div class="dlg-cell phys">
+      <svg class="eq-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="7" y="11" width="34" height="30" rx="5"/><path d="M7 20h34"/><path d="M16 6v8"/><path d="M32 6v8"/><path d="M17 30l5 5 9-10"/>
+      </svg>
+      <p>Consistency</p>
+    </div>
+    <div class="dlg-arrow">→</div>
+    <div class="dlg-cell ment">
+      <svg class="eq-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="7" y="11" width="34" height="30" rx="5"/><path d="M7 20h34"/><path d="M16 6v8"/><path d="M32 6v8"/><path d="M17 30l5 5 9-10"/>
+      </svg>
+      <p>Lasting change</p>
+    </div>
+  </div>
+
+  <div class="dlg-note reveal">
+    <p>Nobody expects one workout to change their body.<br><span>So why expect one insight to change your mind?</span></p>
+  </div>
+</div>
+
+<section class="s-light">
+<hr class="divider"/>
+
+<!-- HOW IT WORKS -->
+<div class="learn-wrap">
+  <p class="sec-label reveal" style="text-align:center;">How It Works</p>
+  <h2 class="reveal" style="text-align:center;">3 Simple Steps to<br><span>Start Your Mental Training</span></h2>
+  <div class="learn-grid">
+
+    <!-- STEP 1 — JOIN -->
+    <div class="learn-item reveal">
+      <svg viewBox="0 0 280 90" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <style>.s1dot{animation:s1pulse 2s ease-in-out infinite;} .s1dot:nth-child(2){animation-delay:.4s;} .s1dot:nth-child(3){animation-delay:.8s;} @keyframes s1pulse{0%,100%{opacity:.4;}50%{opacity:1;}}</style>
+        </defs>
+        <!-- Screen/laptop -->
+        <rect x="70" y="10" width="140" height="52" rx="6" fill="none" stroke="rgba(220,38,38,0.5)" stroke-width="1.5"/>
+        <rect x="76" y="16" width="128" height="40" rx="3" fill="rgba(220,38,38,0.07)"/>
+        <!-- Screen content: play button -->
+        <circle cx="140" cy="36" r="12" fill="none" stroke="rgba(220,38,38,0.6)" stroke-width="1.3"/>
+        <polygon points="136,30 136,42 150,36" fill="rgba(220,38,38,0.6)"/>
+        <!-- Stand -->
+        <path d="M 120 62 L 115 75 M 160 62 L 165 75" stroke="rgba(220,38,38,0.35)" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="110" y1="75" x2="170" y2="75" stroke="rgba(220,38,38,0.35)" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- People / attendees dots -->
+        <circle cx="30" cy="55" r="10" fill="none" stroke="rgba(220,38,38,0.4)" stroke-width="1.2" class="s1dot"/>
+        <circle cx="30" cy="42" r="5" fill="none" stroke="rgba(220,38,38,0.4)" stroke-width="1.2" class="s1dot"/>
+        <circle cx="250" cy="55" r="10" fill="none" stroke="rgba(220,38,38,0.4)" stroke-width="1.2" class="s1dot"/>
+        <circle cx="250" cy="42" r="5" fill="none" stroke="rgba(220,38,38,0.4)" stroke-width="1.2" class="s1dot"/>
+        <!-- Wifi/signal lines -->
+        <path d="M 140 10 Q 140 4 140 2" stroke="rgba(220,38,38,0.4)" stroke-width="1" stroke-linecap="round"/>
+        <path d="M 128 8 Q 134 2 140 2 Q 146 2 152 8" fill="none" stroke="rgba(220,38,38,0.35)" stroke-width="1"/>
+        <path d="M 120 12 Q 130 2 140 2 Q 150 2 160 12" fill="none" stroke="rgba(220,38,38,0.25)" stroke-width="1"/>
+        <!-- Step label -->
+        <text x="140" y="87" font-family="Manrope,sans-serif" font-size="9" fill="rgba(220,38,38,0.5)" text-anchor="middle" letter-spacing="1.5">STEP 1 · LIVE SESSION</text>
+      </svg>
+      <p><strong>Step 1 — Join the FREE Masterclass</strong>Register for the free 90-minute live session on Sunday 3rd August at 10 AM UK time. Rachanaa will walk you through the Mental Gym framework and you'll experience your first training session live.</p>
+    </div>
+
+    <!-- STEP 2 — UNDERSTAND -->
+    <div class="learn-item reveal">
+      <svg viewBox="0 0 280 90" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <style>.s2line{stroke-dasharray:5 3;animation:s2flow 1.8s linear infinite;} @keyframes s2flow{to{stroke-dashoffset:-16;}} .s2node{animation:s2blink 2.4s ease-in-out infinite;} .s2node:nth-child(odd){animation-delay:.6s;} @keyframes s2blink{0%,100%{opacity:.4;}50%{opacity:1;}}</style>
+        </defs>
+        <!-- Brain outline -->
+        <path d="M 100 60 Q 85 60 80 50 Q 74 38 82 30 Q 86 24 94 24 Q 96 18 104 16 Q 114 12 124 18 Q 130 12 140 14 Q 150 12 156 18 Q 166 12 176 16 Q 184 18 186 24 Q 194 24 198 30 Q 206 38 200 50 Q 195 60 180 60 Q 175 68 165 68 Q 155 72 140 70 Q 125 72 115 68 Q 105 68 100 60 Z"
+              fill="none" stroke="rgba(220,38,38,0.45)" stroke-width="1.4"/>
+        <!-- Neural nodes inside brain -->
+        <circle cx="118" cy="35" r="3.5" fill="rgba(220,38,38,0.6)" class="s2node"/>
+        <circle cx="140" cy="28" r="3.5" fill="rgba(220,38,38,0.6)" class="s2node"/>
+        <circle cx="162" cy="35" r="3.5" fill="rgba(220,38,38,0.6)" class="s2node"/>
+        <circle cx="128" cy="52" r="3.5" fill="rgba(220,38,38,0.55)" class="s2node"/>
+        <circle cx="152" cy="52" r="3.5" fill="rgba(220,38,38,0.55)" class="s2node"/>
+        <circle cx="140" cy="45" r="4.5" fill="rgba(220,38,38,0.75)" class="s2node"/>
+        <!-- Connections -->
+        <line x1="118" y1="35" x2="140" y2="28" stroke="rgba(220,38,38,0.3)" stroke-width="1" class="s2line"/>
+        <line x1="140" y1="28" x2="162" y2="35" stroke="rgba(220,38,38,0.3)" stroke-width="1" class="s2line"/>
+        <line x1="118" y1="35" x2="140" y2="45" stroke="rgba(220,38,38,0.3)" stroke-width="1" class="s2line"/>
+        <line x1="162" y1="35" x2="140" y2="45" stroke="rgba(220,38,38,0.3)" stroke-width="1" class="s2line"/>
+        <line x1="140" y1="45" x2="128" y2="52" stroke="rgba(220,38,38,0.3)" stroke-width="1" class="s2line"/>
+        <line x1="140" y1="45" x2="152" y2="52" stroke="rgba(220,38,38,0.3)" stroke-width="1" class="s2line"/>
+        <!-- Magnifying glass -->
+        <circle cx="200" cy="68" r="13" fill="none" stroke="rgba(220,38,38,0.6)" stroke-width="1.5"/>
+        <line x1="210" y1="78" x2="220" y2="88" stroke="rgba(220,38,38,0.55)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="200" cy="68" r="7" fill="rgba(220,38,38,0.08)"/>
+        <text x="140" y="87" font-family="Manrope,sans-serif" font-size="9" fill="rgba(220,38,38,0.5)" text-anchor="middle" letter-spacing="1.5">STEP 2 · IDENTIFY PATTERNS</text>
+      </svg>
+      <p><strong>Step 2 — Understand Your Mental Conditioning</strong>You'll identify the exact mental patterns that are keeping you stuck — the ones that no app, holiday, or promotion has been able to fix.</p>
+    </div>
+
+    <!-- STEP 3 — TRAIN -->
+    <div class="learn-item reveal">
+      <svg viewBox="0 0 280 90" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <style>.s3bar{animation:s3grow 2.2s ease-in-out infinite;transform-origin:bottom;} .s3bar:nth-child(2){animation-delay:.3s;} .s3bar:nth-child(3){animation-delay:.6s;} .s3bar:nth-child(4){animation-delay:.9s;} .s3bar:nth-child(5){animation-delay:1.2s;} @keyframes s3grow{0%,100%{opacity:.5;}50%{opacity:1;}}</style>
+        </defs>
+        <!-- Dumbbell left -->
+        <rect x="30" y="38" width="36" height="10" rx="2" fill="none" stroke="rgba(220,38,38,0.45)" stroke-width="1.3"/>
+        <rect x="24" y="30" width="12" height="26" rx="3" fill="none" stroke="rgba(220,38,38,0.5)" stroke-width="1.3"/>
+        <rect x="60" y="30" width="12" height="26" rx="3" fill="none" stroke="rgba(220,38,38,0.5)" stroke-width="1.3"/>
+        <!-- Dumbbell right -->
+        <rect x="214" y="38" width="36" height="10" rx="2" fill="none" stroke="rgba(220,38,38,0.45)" stroke-width="1.3"/>
+        <rect x="208" y="30" width="12" height="26" rx="3" fill="none" stroke="rgba(220,38,38,0.5)" stroke-width="1.3"/>
+        <rect x="244" y="30" width="12" height="26" rx="3" fill="none" stroke="rgba(220,38,38,0.5)" stroke-width="1.3"/>
+        <!-- Calendar / 21 days progress bars -->
+        <rect x="100" y="12" width="80" height="58" rx="6" fill="none" stroke="rgba(220,38,38,0.4)" stroke-width="1.2"/>
+        <text x="140" y="30" font-family="Manrope,sans-serif" font-size="11" font-weight="700" fill="rgba(220,38,38,0.7)" text-anchor="middle">21 DAYS</text>
+        <!-- Progress bars inside calendar -->
+        <rect x="108" y="36" width="64" height="6" rx="3" fill="rgba(220,38,38,0.1)" class="s3bar"/>
+        <rect x="108" y="36" width="52" height="6" rx="3" fill="rgba(220,38,38,0.5)" class="s3bar"/>
+        <rect x="108" y="46" width="64" height="6" rx="3" fill="rgba(220,38,38,0.1)" class="s3bar"/>
+        <rect x="108" y="46" width="38" height="6" rx="3" fill="rgba(220,38,38,0.4)" class="s3bar"/>
+        <rect x="108" y="56" width="64" height="6" rx="3" fill="rgba(220,38,38,0.1)" class="s3bar"/>
+        <rect x="108" y="56" width="20" height="6" rx="3" fill="rgba(220,38,38,0.3)" class="s3bar"/>
+        <text x="140" y="87" font-family="Manrope,sans-serif" font-size="9" fill="rgba(220,38,38,0.5)" text-anchor="middle" letter-spacing="1.5">STEP 3 · 21-DAY TRAINING</text>
+      </svg>
+      <p><strong>Why 21 Days?</strong>One workout won't transform your body. One meditation won't transform your mind. Mental strength is built through repetition. Twenty-one days gives you the opportunity to practise new mental responses every day, helping your brain reinforce healthier patterns until they begin to feel more natural.</p>
+    </div>
+
+    <!-- STEP 4 — EXPERIENCE LIVE -->
+    <div class="learn-item reveal">
+      <svg viewBox="0 0 280 90" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <style>.s4wave{animation:s4ripple 2s ease-in-out infinite;} .s4wave:nth-child(2){animation-delay:.5s;} .s4wave:nth-child(3){animation-delay:1s;} @keyframes s4ripple{0%,100%{opacity:.2;transform:scale(1);}50%{opacity:.7;transform:scale(1.04);}}</style>
+        </defs>
+        <!-- Person silhouette (meditating) -->
+        <circle cx="140" cy="28" r="11" fill="none" stroke="rgba(220,38,38,0.55)" stroke-width="1.3"/>
+        <!-- Body sitting -->
+        <path d="M 125 50 Q 128 40 140 40 Q 152 40 155 50 L 160 62 Q 140 68 120 62 Z" fill="none" stroke="rgba(220,38,38,0.45)" stroke-width="1.3" stroke-linejoin="round"/>
+        <!-- Legs crossed -->
+        <path d="M 120 62 Q 130 70 140 68 Q 150 70 160 62" fill="none" stroke="rgba(220,38,38,0.4)" stroke-width="1.2"/>
+        <!-- Arms out (open/receiving) -->
+        <path d="M 126 46 L 108 52" stroke="rgba(220,38,38,0.4)" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M 154 46 L 172 52" stroke="rgba(220,38,38,0.4)" stroke-width="1.2" stroke-linecap="round"/>
+        <!-- Ripple waves (energy/subconscious) -->
+        <ellipse cx="140" cy="52" rx="30" ry="20" fill="none" stroke="rgba(220,38,38,0.25)" stroke-width="1" class="s4wave" style="transform-origin:140px 52px"/>
+        <ellipse cx="140" cy="52" rx="45" ry="30" fill="none" stroke="rgba(220,38,38,0.18)" stroke-width="1" class="s4wave" style="transform-origin:140px 52px"/>
+        <ellipse cx="140" cy="52" rx="60" ry="38" fill="none" stroke="rgba(220,38,38,0.1)" stroke-width="1" class="s4wave" style="transform-origin:140px 52px"/>
+        <!-- Sparkles -->
+        <circle cx="85" cy="25" r="2" fill="rgba(220,38,38,0.6)"/>
+        <circle cx="195" cy="25" r="2" fill="rgba(220,38,38,0.6)"/>
+        <circle cx="75" cy="42" r="1.5" fill="rgba(220,38,38,0.4)"/>
+        <circle cx="205" cy="42" r="1.5" fill="rgba(220,38,38,0.4)"/>
+        <text x="140" y="87" font-family="Manrope,sans-serif" font-size="9" fill="rgba(220,38,38,0.5)" text-anchor="middle" letter-spacing="1.5">LIVE EXPERIENCE · FEEL IT FIRST</text>
+      </svg>
+      <p><strong>Experience It Live — Not Just Information</strong>You won't just hear about the technique. Rachanaa will guide you through an actual guided mental training session during the masterclass. You'll feel the difference before it even ends.</p>
+    </div>
+
+  </div>
+  <div style="text-align:center;margin-top:40px;" class="reveal">
+    <button class="cta-btn" onclick="openModal()">👉 Join Mental Gym</button>
+    <p class="cta-note" style="margin-top:10px;">✅ Free · Live Online · Sunday 3rd August · Only 90 Minutes</p>
+  </div>
+</div>
+
+<hr class="divider"/>
+</section>
+
+<!-- TESTIMONIALS -->
+<div class="t-bg">
+  <div class="t-inner">
+    <p class="sec-label reveal">What Professionals Say After Training</p>
+    <h2 class="reveal">Real People.<br><span>Real Results.</span></h2>
+    <div class="t-grid">
+      <div class="t-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"I've tried everything — therapy, apps, retreats. Nothing stuck. Mental Gym was the first thing that actually changed how I respond to stress. It's like upgrading the operating system, not just the apps."</p>
+        <p class="t-name">Priya S.</p>
+        <p class="t-role">IT Manager · London</p>
+      </div>
+      <div class="t-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"I used to bring every work problem home. My partner noticed the change before I did. I'm more present, calmer, and I actually sleep now."</p>
+        <p class="t-name">Rahul M.</p>
+        <p class="t-role">Finance Professional · Amsterdam</p>
+      </div>
+      <div class="t-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"She is god sent for me. I finally feel like myself again — not the performance of myself."</p>
+        <p class="t-name">Anjali K.</p>
+        <p class="t-role">Business Owner · Birmingham</p>
+      </div>
+      <div class="t-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"I didn't know what I was carrying until it was gone. Happy, positive, light — for the first time in years. This is the missing piece I'd been looking for."</p>
+        <p class="t-name">Meera T.</p>
+        <p class="t-role">Medical Professional · Manchester</p>
+      </div>
+    </div>
+  </div>
+  <div class="t-vid-inner">
+    <p class="sec-label reveal" style="text-align:center;margin-top:48px;">Video Testimonials</p>
+    <h2 class="reveal" style="text-align:center;margin-bottom:24px;font-size:clamp(26px,3.5vw,44px);font-weight:900;color:#fff;">Hear It From <span style="color:#ef4444;">Them</span></h2>
+    <div class="t-vid-grid">
+      <div class="t-vid-wrap reveal">
+        <iframe src="https://player.vimeo.com/video/1181991350?badge=0&autopause=0&player_id=0&app_id=58479" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
+      </div>
+      <div class="t-vid-wrap reveal">
+        <iframe src="https://player.vimeo.com/video/1181988607?badge=0&autopause=0&player_id=0&app_id=58479" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
+      </div>
+      <div class="t-vid-wrap reveal">
+        <iframe src="https://player.vimeo.com/video/1181989827?badge=0&autopause=0&player_id=0&app_id=58479" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
+      </div>
+      <div class="t-vid-wrap reveal">
+        <iframe src="https://player.vimeo.com/video/1181987028?badge=0&autopause=0&player_id=0&app_id=58479" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- MIND RESULTS / TRANSFORMATION -->
+<div class="mindresult-wrap">
+  <p class="sec-label reveal" style="text-align:center;">The Transformation</p>
+  <h2 class="reveal">After 21 Days of Mental Gym,<br><span>You Will:</span></h2>
+
+  <!-- AT WORK -->
+  <div class="reveal" style="display:flex;align-items:center;gap:32px;margin-bottom:44px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:28px 32px;">
+    <div style="flex:1;min-width:0;">
+      <p style="font-size:17px;font-weight:800;color:#fff;margin-bottom:16px;">At Work:</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:flex-start;gap:12px;"><span style="font-size:16px;flex-shrink:0;">✅</span><p style="font-size:15px;color:#ccc;line-height:1.55;">Walk into meetings with genuine confidence — not performed confidence</p></div>
+        <div style="display:flex;align-items:flex-start;gap:12px;"><span style="font-size:16px;flex-shrink:0;">✅</span><p style="font-size:15px;color:#ccc;line-height:1.55;">Stop second-guessing your decisions for hours</p></div>
+        <div style="display:flex;align-items:flex-start;gap:12px;"><span style="font-size:16px;flex-shrink:0;">✅</span><p style="font-size:15px;color:#ccc;line-height:1.55;">Handle difficult conversations without replaying them all night</p></div>
+        <div style="display:flex;align-items:flex-start;gap:12px;"><span style="font-size:16px;flex-shrink:0;">✅</span><p style="font-size:15px;color:#ccc;line-height:1.55;">Finish the workday and actually leave it at the office — mentally</p></div>
+        <div style="display:flex;align-items:flex-start;gap:12px;"><span style="font-size:16px;flex-shrink:0;">✅</span><p style="font-size:15px;color:#ccc;line-height:1.55;">Stay calm under pressure instead of going into panic mode</p></div>
+      </div>
+    </div>
+    <!-- Work SVG Illustration -->
+    <div style="flex-shrink:0;width:140px;display:flex;align-items:center;justify-content:center;">
+      <svg viewBox="0 0 140 160" xmlns="http://www.w3.org/2000/svg" style="width:130px;height:auto;">
+        <defs>
+          <radialGradient id="wglow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ef4444" stop-opacity="0.12"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </radialGradient>
+          <style>.wbars rect { animation: barRise 2.4s ease-in-out infinite; } .wbars rect:nth-child(2){animation-delay:.3s;} .wbars rect:nth-child(3){animation-delay:.6s;} .wbars rect:nth-child(4){animation-delay:.9s;} @keyframes barRise{0%,100%{opacity:.5;}50%{opacity:1;}}</style>
+        </defs>
+        <ellipse cx="70" cy="80" rx="60" ry="70" fill="url(#wglow)"/>
+        <!-- Person silhouette -->
+        <circle cx="70" cy="38" r="14" fill="none" stroke="rgba(239,68,68,0.6)" stroke-width="1.5"/>
+        <path d="M 52 62 Q 55 52 70 52 Q 85 52 88 62 L 90 100 Q 80 104 70 104 Q 60 104 50 100 Z" fill="none" stroke="rgba(239,68,68,0.5)" stroke-width="1.5" stroke-linejoin="round"/>
+        <!-- Arms up (confident) -->
+        <path d="M 52 68 L 36 55" stroke="rgba(239,68,68,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M 88 68 L 104 55" stroke="rgba(239,68,68,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Legs -->
+        <path d="M 60 100 L 55 128" stroke="rgba(239,68,68,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M 80 100 L 85 128" stroke="rgba(239,68,68,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Bar chart (performance) -->
+        <g class="wbars">
+          <rect x="22" y="105" width="10" height="24" rx="2" fill="rgba(239,68,68,0.25)" stroke="rgba(239,68,68,0.5)" stroke-width="1"/>
+          <rect x="35" y="95" width="10" height="34" rx="2" fill="rgba(239,68,68,0.3)" stroke="rgba(239,68,68,0.55)" stroke-width="1"/>
+          <rect x="98" y="100" width="10" height="29" rx="2" fill="rgba(239,68,68,0.25)" stroke="rgba(239,68,68,0.5)" stroke-width="1"/>
+          <rect x="111" y="88" width="10" height="41" rx="2" fill="rgba(239,68,68,0.35)" stroke="rgba(239,68,68,0.6)" stroke-width="1"/>
+        </g>
+        <!-- Upward arrow -->
+        <path d="M 70 148 L 70 135 M 64 141 L 70 135 L 76 141" stroke="rgba(239,68,68,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Confidence spark -->
+        <circle cx="70" cy="25" r="3" fill="rgba(239,68,68,0.8)"/>
+        <path d="M 70 18 L 70 14 M 76 20 L 79 17 M 64 20 L 61 17" stroke="rgba(239,68,68,0.6)" stroke-width="1.2" stroke-linecap="round"/>
+        <text x="70" y="158" font-family="Manrope,sans-serif" font-size="8" fill="rgba(239,68,68,0.45)" text-anchor="middle" letter-spacing="1">CONFIDENCE</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- AT HOME -->
+  <div class="reveal" style="display:flex;align-items:center;gap:32px;margin-bottom:44px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:28px 32px;">
+    <!-- Home SVG Illustration -->
+    <div style="flex-shrink:0;width:140px;display:flex;align-items:center;justify-content:center;">
+      <svg viewBox="0 0 140 160" xmlns="http://www.w3.org/2000/svg" style="width:130px;height:auto;">
+        <defs>
+          <radialGradient id="hglow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ef4444" stop-opacity="0.12"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </radialGradient>
+          <style>.hpulse{animation:heartbeat 1.8s ease-in-out infinite;transform-origin:70px 85px;} @keyframes heartbeat{0%,100%{transform:scale(1);}30%{transform:scale(1.12);}60%{transform:scale(1.05);}}</style>
+        </defs>
+        <ellipse cx="70" cy="80" rx="60" ry="70" fill="url(#hglow)"/>
+        <!-- House shape -->
+        <path d="M 20 90 L 70 42 L 120 90" fill="none" stroke="rgba(239,68,68,0.55)" stroke-width="1.5" stroke-linejoin="round"/>
+        <rect x="30" y="90" width="80" height="42" rx="3" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+        <!-- Door -->
+        <rect x="60" y="108" width="20" height="24" rx="3" fill="none" stroke="rgba(239,68,68,0.5)" stroke-width="1.2"/>
+        <!-- Window left -->
+        <rect x="36" y="100" width="16" height="14" rx="2" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+        <line x1="44" y1="100" x2="44" y2="114" stroke="rgba(239,68,68,0.3)" stroke-width="0.8"/>
+        <!-- Window right -->
+        <rect x="88" y="100" width="16" height="14" rx="2" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+        <line x1="96" y1="100" x2="96" y2="114" stroke="rgba(239,68,68,0.3)" stroke-width="0.8"/>
+        <!-- Warm glow in windows -->
+        <rect x="37" y="101" width="6" height="12" rx="1" fill="rgba(239,68,68,0.15)"/>
+        <rect x="44" y="101" width="6" height="12" rx="1" fill="rgba(239,68,68,0.15)"/>
+        <rect x="89" y="101" width="6" height="12" rx="1" fill="rgba(239,68,68,0.15)"/>
+        <rect x="96" y="101" width="6" height="12" rx="1" fill="rgba(239,68,68,0.15)"/>
+        <!-- Heart above house -->
+        <path d="M 70 35 C 70 35 60 25 52 30 C 44 35 44 46 52 52 L 70 68 L 88 52 C 96 46 96 35 88 30 C 80 25 70 35 70 35 Z" fill="none" stroke="rgba(239,68,68,0.7)" stroke-width="1.5" class="hpulse"/>
+        <text x="70" y="158" font-family="Manrope,sans-serif" font-size="8" fill="rgba(239,68,68,0.45)" text-anchor="middle" letter-spacing="1">PRESENCE</text>
+      </svg>
+    </div>
+    <div style="flex:1;min-width:0;">
+      <p style="font-size:17px;font-weight:800;color:#fff;margin-bottom:16px;">At Home:</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:flex-start;gap:12px;"><span style="font-size:16px;flex-shrink:0;">✅</span><p style="font-size:15px;color:#ccc;line-height:1.55;">Be mentally present with your family — not just physically there</p></div>
+        <div style="display:flex;align-items:flex-start;gap:12px;"><span style="font-size:16px;flex-shrink:0;">✅</span><p style="font-size:15px;color:#ccc;line-height:1.55;">Stop snapping at your partner after a stressful day</p></div>
+        <div style="display:flex;align-items:flex-start;gap:12px;"><span style="font-size:16px;flex-shrink:0;">✅</span><p style="font-size:15px;color:#ccc;line-height:1.55;">Set boundaries without guilt</p></div>
+        <div style="display:flex;align-items:flex-start;gap:12px;"><span style="font-size:16px;flex-shrink:0;">✅</span><p style="font-size:15px;color:#ccc;line-height:1.55;">Actually enjoy your weekends instead of dreading Monday</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INSIDE -->
+  <div class="reveal" style="display:flex;align-items:center;gap:32px;margin-bottom:36px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:28px 32px;">
+    <div style="flex:1;min-width:0;">
+      <p style="font-size:17px;font-weight:800;color:#fff;margin-bottom:16px;">Inside:</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:flex-start;gap:12px;"><span style="font-size:16px;flex-shrink:0;">✅</span><p style="font-size:15px;color:#ccc;line-height:1.55;">Fall asleep faster — because your mind actually switches off</p></div>
+        <div style="display:flex;align-items:flex-start;gap:12px;"><span style="font-size:16px;flex-shrink:0;">✅</span><p style="font-size:15px;color:#ccc;line-height:1.55;">Wake up feeling mentally refreshed, not already exhausted</p></div>
+        <div style="display:flex;align-items:flex-start;gap:12px;"><span style="font-size:16px;flex-shrink:0;">✅</span><p style="font-size:15px;color:#ccc;line-height:1.55;">Stop seeking approval before trusting your own judgment</p></div>
+        <div style="display:flex;align-items:flex-start;gap:12px;"><span style="font-size:16px;flex-shrink:0;">✅</span><p style="font-size:15px;color:#ccc;line-height:1.55;">Feel the inner calm you've been chasing through achievements</p></div>
+      </div>
+    </div>
+    <!-- Inside SVG Illustration -->
+    <div style="flex-shrink:0;width:140px;display:flex;align-items:center;justify-content:center;">
+      <svg viewBox="0 0 140 160" xmlns="http://www.w3.org/2000/svg" style="width:130px;height:auto;">
+        <defs>
+          <radialGradient id="iglow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ef4444" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </radialGradient>
+          <style>
+            .iring{animation:calmRing 3s ease-in-out infinite;transform-origin:70px 72px;}
+            .iring:nth-child(2){animation-delay:.8s;}
+            .iring:nth-child(3){animation-delay:1.6s;}
+            @keyframes calmRing{0%,100%{opacity:.2;transform:scale(1);}50%{opacity:.7;transform:scale(1.06);}}
+            .moonstar{animation:starTwinkle 2.2s ease-in-out infinite;}
+            .moonstar:nth-child(2){animation-delay:.7s;}
+            .moonstar:nth-child(3){animation-delay:1.4s;}
+            @keyframes starTwinkle{0%,100%{opacity:.3;}50%{opacity:.9;}}
+          </style>
+        </defs>
+        <ellipse cx="70" cy="80" rx="60" ry="70" fill="url(#iglow)"/>
+        <!-- Calm rings -->
+        <circle cx="70" cy="72" r="48" fill="none" stroke="rgba(239,68,68,0.15)" stroke-width="1" class="iring"/>
+        <circle cx="70" cy="72" r="36" fill="none" stroke="rgba(239,68,68,0.2)" stroke-width="1" class="iring"/>
+        <circle cx="70" cy="72" r="24" fill="none" stroke="rgba(239,68,68,0.3)" stroke-width="1" class="iring"/>
+        <!-- Peaceful face -->
+        <circle cx="70" cy="72" r="18" fill="none" stroke="rgba(239,68,68,0.6)" stroke-width="1.5"/>
+        <!-- Closed eyes (peaceful) -->
+        <path d="M 62 70 Q 65 68 68 70" fill="none" stroke="rgba(239,68,68,0.7)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M 72 70 Q 75 68 78 70" fill="none" stroke="rgba(239,68,68,0.7)" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Gentle smile -->
+        <path d="M 64 77 Q 70 82 76 77" fill="none" stroke="rgba(239,68,68,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Stars -->
+        <circle cx="30" cy="32" r="2" fill="rgba(239,68,68,0.7)" class="moonstar"/>
+        <circle cx="110" cy="28" r="1.5" fill="rgba(239,68,68,0.6)" class="moonstar"/>
+        <circle cx="118" cy="48" r="1.5" fill="rgba(239,68,68,0.5)" class="moonstar"/>
+        <circle cx="22" cy="52" r="1.5" fill="rgba(239,68,68,0.5)" class="moonstar"/>
+        <!-- Moon crescent -->
+        <path d="M 95 22 Q 88 30 95 38 Q 105 34 105 30 Q 105 26 95 22 Z" fill="none" stroke="rgba(239,68,68,0.55)" stroke-width="1.2"/>
+        <!-- Bottom wave (calm water) -->
+        <path d="M 18 128 Q 35 120 52 128 Q 69 136 86 128 Q 103 120 122 128" fill="none" stroke="rgba(239,68,68,0.3)" stroke-width="1.2"/>
+        <path d="M 18 136 Q 35 128 52 136 Q 69 144 86 136 Q 103 128 122 136" fill="none" stroke="rgba(239,68,68,0.2)" stroke-width="1"/>
+        <text x="70" y="158" font-family="Manrope,sans-serif" font-size="8" fill="rgba(239,68,68,0.45)" text-anchor="middle" letter-spacing="1">INNER CALM</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="reveal" style="border-left:3px solid #ef4444;padding:16px 20px;background:rgba(220,38,38,.07);border-radius:0 12px 12px 0;margin-bottom:36px;">
+    <p style="font-size:17px;font-weight:800;color:#fff;">Life doesn't necessarily get easier. You get mentally stronger.</p>
+  </div>
+
+  <div style="text-align:center;" class="reveal">
+    <button class="cta-btn" onclick="openModal()">👉 Join Mental Gym</button>
+    <p class="cta-note" style="margin-top:10px;">✅ Free Masterclass · 90 minutes · No experience needed</p>
+  </div>
+</div>
+
+<!-- SECTION 9 — WHO IT'S FOR -->
+<div style="max-width:860px;margin:0 auto;padding:72px 24px;">
+  <p class="sec-label reveal" style="text-align:center;">Is This For You?</p>
+  <h2 class="reveal" style="font-size:clamp(26px,3.5vw,44px);font-weight:900;color:#fff;line-height:1.15;text-align:center;margin-bottom:40px;">Mental Gym Is For You <span>If…</span></h2>
+  <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:48px;" class="reveal">
+    <div style="display:flex;align-items:flex-start;gap:14px;background:rgba(220,38,38,.07);border:1px solid rgba(220,38,38,.2);border-radius:12px;padding:16px 20px;">
+      <span style="font-size:20px;flex-shrink:0;">✅</span><p style="font-size:15px;color:#ccc;font-weight:600;line-height:1.5;">You're a professional living in the UK or Europe</p>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:14px;background:rgba(220,38,38,.07);border:1px solid rgba(220,38,38,.2);border-radius:12px;padding:16px 20px;">
+      <span style="font-size:20px;flex-shrink:0;">✅</span><p style="font-size:15px;color:#ccc;font-weight:600;line-height:1.5;">You've achieved a lot externally but feel empty or stuck internally</p>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:14px;background:rgba(220,38,38,.07);border:1px solid rgba(220,38,38,.2);border-radius:12px;padding:16px 20px;">
+      <span style="font-size:20px;flex-shrink:0;">✅</span><p style="font-size:15px;color:#ccc;font-weight:600;line-height:1.5;">You're tired of carrying stress, anxiety, or emotional heaviness</p>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:14px;background:rgba(220,38,38,.07);border:1px solid rgba(220,38,38,.2);border-radius:12px;padding:16px 20px;">
+      <span style="font-size:20px;flex-shrink:0;">✅</span><p style="font-size:15px;color:#ccc;font-weight:600;line-height:1.5;">You've tried other approaches and are ready for something that actually works</p>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:14px;background:rgba(220,38,38,.07);border:1px solid rgba(220,38,38,.2);border-radius:12px;padding:16px 20px;">
+      <span style="font-size:20px;flex-shrink:0;">✅</span><p style="font-size:15px;color:#ccc;font-weight:600;line-height:1.5;">You're willing to invest 20 minutes a day into your mental fitness</p>
+    </div>
+  </div>
+
+  <h2 class="reveal" style="font-size:clamp(26px,3.5vw,44px);font-weight:900;color:#fff;line-height:1.15;text-align:center;margin-bottom:32px;">Mental Gym Is <span>NOT</span> For You If…</h2>
+  <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:44px;" class="reveal">
+    <div style="display:flex;align-items:flex-start;gap:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 20px;">
+      <span style="font-size:20px;flex-shrink:0;">❌</span><p style="font-size:15px;color:#666;font-weight:600;line-height:1.5;">You're looking for a quick fix or magic pill</p>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 20px;">
+      <span style="font-size:20px;flex-shrink:0;">❌</span><p style="font-size:15px;color:#666;font-weight:600;line-height:1.5;">You're not willing to show up consistently</p>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 20px;">
+      <span style="font-size:20px;flex-shrink:0;">❌</span><p style="font-size:15px;color:#666;font-weight:600;line-height:1.5;">You believe your situation is unique and nothing can help</p>
+    </div>
+  </div>
+
+  <div style="text-align:center;" class="reveal">
+    <button class="cta-btn" onclick="openModal()">👉 Join Mental Gym</button>
+    <p class="cta-note" style="margin-top:10px;">✅ Free · Live · Sunday 3rd August · 10 AM UK</p>
+  </div>
+</div>
+
+<!-- SECOND PHOTO BREAK -->
+<div class="photo-side">
+  <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&fit=crop&q=80" alt="Mental Training" class="reveal-left" loading="lazy"/>
+  <div class="photo-side-text reveal-right">
+    <p class="sec-label">Why Everything Else Didn't Work</p>
+    <h2>You Weren't Broken.<br>You Were Just <span>Training The Wrong Layer.</span></h2>
+    <p>Meditation calms the surface — but the pattern underneath stays. Therapy helps you understand the past — but understanding doesn't dissolve the feeling. Coaching pushes you forward — but the invisible weight keeps pulling you back.</p>
+    <p>Mental Gym trains a different layer. It works on the automatic patterns where the reaction actually forms — retraining them through repeated, structured practice rather than willpower.</p>
+    <button class="cta-btn" onclick="openModal()" style="animation:none;">👉 Join Mental Gym</button>
+    <p class="cta-note" style="margin-top:10px;">Free · Live · Sunday 3rd Aug · 10 AM UK</p>
+  </div>
+</div>
+</section>
+
+<section class="s-light">
+<!-- FAQ -->
+<div class="faq-wrap">
+  <p class="sec-label reveal" style="text-align:center;">Got Questions?</p>
+  <h2 class="reveal">We've Got <span>Answers</span></h2>
+  <div class="faq-item reveal">
+    <button class="faq-q" onclick="toggleFaq(this)">Is this just another meditation or mindfulness thing? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a"><p>No. Meditation trains your attention in the moment. Mental Gym trains the automatic patterns underneath — the habits, reactions and beliefs that fire before you've consciously decided anything. That's why it can shift things other approaches haven't.</p></div>
+  </div>
+  <div class="faq-item reveal">
+    <button class="faq-q" onclick="toggleFaq(this)">I've tried so many things. Why would this be different? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a"><p>Because most approaches treat the symptom, not the root. Mental Gym targets the automatic mental patterns that drive your behaviour — not just the surface thoughts you're already aware of. That's why it can work when other approaches haven't.</p></div>
+  </div>
+  <div class="faq-item reveal">
+    <button class="faq-q" onclick="toggleFaq(this)">I'm too busy for another programme. <span class="faq-arrow">▼</span></button>
+    <div class="faq-a"><p>20 minutes a day. That's the commitment. If you have time to scroll your phone before bed, you have time for Mental Gym. The masterclass itself is 90 minutes — one Sunday morning.</p></div>
+  </div>
+  <div class="faq-item reveal">
+    <button class="faq-q" onclick="toggleFaq(this)">Is the masterclass really free? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a"><p>Yes. The live session on Sunday 3rd August is completely free. No credit card. No catch. Just register with your name and WhatsApp number and we'll send you the Zoom link.</p></div>
+  </div>
+  <div class="faq-item reveal">
+    <button class="faq-q" onclick="toggleFaq(this)">What if I can't attend live? <span class="faq-arrow">▼</span></button>
+    <div class="faq-a"><p>Register anyway — you'll receive details about replay options and next steps after the session. But attending live is where the real experience happens. Rachanaa guides you through an actual guided mental training session in the room.</p></div>
+  </div>
+</div>
+
+<hr class="divider"/>
+</section>
+
+<!-- FINAL CTA -->
+<div class="final-wrap">
+  <div class="final-box reveal">
+    <h2>You've Spent Years Building Your Career.</h2>
+    <h2 class="red-h">Isn't It Time to Build Your Mind?</h2>
+    <p style="font-size:16px;color:#ccc;max-width:560px;margin:20px auto 8px;line-height:1.7;">Your career. Your relationships. Your peace. Your sleep. Your presence.</p>
+    <p style="font-size:16px;color:#888;max-width:560px;margin:0 auto 28px;line-height:1.7;">All of it improves when your mind is trained. The masterclass is free. The session is 90 minutes. The change can last a lifetime.</p>
+    <button class="cta-btn" onclick="openModal()">👉 Join Mental Gym</button>
+    <p class="cta-note" style="margin-top:13px;">✅ Limited spots available · Free · No payment required</p>
+    <p style="font-size:13px;color:#444;margin-top:16px;font-weight:700;">Life doesn't get easier. You get mentally stronger.</p>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Rachanaa Tulsyan · Rapid Quantum Shift Academy · <a href="mailto:hello@rachanaatulsyan.com">hello@rachanaatulsyan.com</a></p>
+</footer>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar" id="stickyBar">
+  <p class="sticky-bar-text">🧠 <span>Mental Gym Masterclass</span> · Sunday 3rd Aug · 10 AM UK · FREE</p>
+  <button class="sticky-bar-btn" onclick="openModal()">Join Mental Gym →</button>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="handleOverlayClick(event)">
+  <div class="modal-box" style="position:relative;">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modal-form-view">
+      <h3>🧠 Reserve Your Free Spot</h3>
+      <p class="modal-sub">Mental Gym Masterclass — Free & Live Online</p>
+      <form id="lead-form" onsubmit="submitLead(event)">
+        <label class="field-label">Your Name *</label>
+        <input id="lead-name" class="field-input" type="text" placeholder="Your full name" required/>
+        <label class="field-label">WhatsApp Number *</label>
+        <input id="lead-phone" class="field-input" type="tel" placeholder="+44 7xxx xxxxxx" required/>
+        <button type="submit" class="submit-btn">✅ Confirm My Free Spot →</button>
+        <p style="font-size:11px;color:#333;text-align:center;margin-top:10px;">We'll send your Zoom link via WhatsApp</p>
+      </form>
+    </div>
+    <div id="modal-success-view" class="success-box" style="display:none;">
+      <div class="big-emoji">🎉</div>
+      <h2>You're Registered!</h2>
+      <p>Your spot for the <strong>Mental Gym Masterclass</strong> is confirmed.</p>
+      <p style="font-size:14px;color:#aaa;margin:16px 0 8px;font-weight:700;">👇 Join the WhatsApp Group for your Zoom link:</p>
+      <a href="https://chat.whatsapp.com/DErZ5Qwi7aSC6JmWOPzPZe?mode=gi_t" target="_blank" style="display:block;background:#25D366;color:#fff;font-size:16px;font-weight:800;padding:14px 20px;border-radius:12px;text-decoration:none;margin:8px 0 16px;text-align:center;">📲 Join WhatsApp Group →</a>
+      <button class="submit-btn" onclick="closeModal()" style="background:#1a1a1a;font-size:13px;padding:12px;">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyTlLRvuTBQfAgoftko0LscWjqKnkkircu5ye2-Q6VKisnnc-ZZgKFY2CN3vIP1R8pG/exec';
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.pain-card').forEach((el,i) => { el.style.transitionDelay = (i * 0.06) + 's'; });
+
+  // Sequential step card glow when section scrolls into view
+  const stepObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        [1,2,3].forEach(n => {
+          setTimeout(() => {
+            const card = document.getElementById('step'+n);
+            const num = document.getElementById('num'+n);
+            if(card){ card.classList.add('animate-glow'); card.addEventListener('animationend',()=>card.classList.remove('animate-glow'),{once:true}); }
+            if(num){ num.classList.add('pop'); num.addEventListener('animationend',()=>num.classList.remove('pop'),{once:true}); }
+          }, (n-1) * 400);
+        });
+        stepObserver.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.3});
+  const stepsRow = document.querySelector('.steps-row');
+  if(stepsRow) stepObserver.observe(stepsRow);
+
+  function openModal() {
+    document.getElementById('modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+    document.body.style.overflow = '';
+    document.getElementById('modal-form-view').style.display = 'block';
+    document.getElementById('modal-success-view').style.display = 'none';
+  }
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('modal')) closeModal();
+  }
+  function submitLead(e) {
+    e.preventDefault();
+    var name=document.getElementById('lead-name').value.trim();
+    var phone=document.getElementById('lead-phone').value.trim();
+    if (!name||!phone){alert('Please fill in all fields.');return;}
+    if(typeof fbq!=='undefined'){fbq('track','Lead',{value:0,currency:'GBP'});fbq('track','CompleteRegistration',{value:0,currency:'GBP'});}
+    fetch('https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjcwNTY5MDYzMjA0MzE1MjY5NTUzYzUxMzYi_pc',{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'application/json'},body:JSON.stringify({name,phone,time:new Date().toISOString(),page_url:window.location.href,status:'Registered',product:'Mental Gym - FREE'})});
+    fetch(APPS_SCRIPT_URL+'?'+new URLSearchParams({name,phone,status:'Registered'}).toString(),{method:'GET',mode:'no-cors',keepalive:true});
+    document.getElementById('modal-form-view').style.display='none';
+    document.getElementById('modal-success-view').style.display='block';
+  }
+
+  // Countdown timer — update date when masterclass date changes
+  (function countdown(){
+    const event = new Date('2026-08-03T10:00:00+01:00');
+    function tick(){
+      const diff = event - Date.now();
+      if(diff<=0){['cd-d','cd-h','cd-m','cd-s'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent='00';});return;}
+      const d=Math.floor(diff/86400000);
+      const h=Math.floor((diff%86400000)/3600000);
+      const m=Math.floor((diff%3600000)/60000);
+      const s=Math.floor((diff%60000)/1000);
+      const pad=n=>String(n).padStart(2,'0');
+      document.getElementById('cd-d').textContent=pad(d);
+      document.getElementById('cd-h').textContent=pad(h);
+      document.getElementById('cd-m').textContent=pad(m);
+      document.getElementById('cd-s').textContent=pad(s);
+    }
+    tick(); setInterval(tick,1000);
+  })();
+
+  // Sticky bar — always visible
+  (function stickyBar(){
+    const bar = document.getElementById('stickyBar');
+    if(!bar) return;
+    bar.classList.add('visible');
+  })();
+
+  // FAQ accordion
+  function toggleFaq(btn){
+    const ans = btn.nextElementSibling;
+    const isOpen = ans.classList.contains('open');
+    document.querySelectorAll('.faq-a.open').forEach(a=>a.classList.remove('open'));
+    document.querySelectorAll('.faq-q.open').forEach(b=>b.classList.remove('open'));
+    if(!isOpen){ans.classList.add('open');btn.classList.add('open');}
+  }
+</script>
+</body>
+</html>
