@@ -1405,7 +1405,7 @@
     var country=document.getElementById('lead-country').value;
     if (!name||!email||!phone||!country){alert('Please fill in all fields.');return;}
     if(typeof fbq!=='undefined'){fbq('track','Lead',{value:0,currency:'GBP'});fbq('track','CompleteRegistration',{value:0,currency:'GBP'});}
-    fetch('https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjcwNTY5MDYzMjA0MzE1MjY5NTUzYzUxMzYi_pc',{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,phone,country,time:new Date().toISOString(),page_url:window.location.href,status:'Registered',product:'Mental Gym - FREE'})});
+    fetch('https://connect.pabbly.com/webhook-listener/webhook/IjU3NjIwNTY5MDYzNjA0M2M1MjY0NTUzYyI_3D_pc/IjU3NjcwNTY5MDYzZjA0MzM1MjY4NTUzMjUxM2Ei_pc',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,phone,country,time:new Date().toISOString(),page_url:window.location.href,status:'Registered',product:'Mental Gym - FREE'})}).catch(function(){});
     fetch(APPS_SCRIPT_URL+'?'+new URLSearchParams({name,email,phone,country,status:'Registered'}).toString(),{method:'GET',mode:'no-cors',keepalive:true});
     document.getElementById('modal-form-view').style.display='none';
     document.getElementById('modal-success-view').style.display='block';
