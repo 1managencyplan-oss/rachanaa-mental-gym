@@ -1460,18 +1460,45 @@
   }
   function normalisePhone(dial, raw){ return '+'+String(dial).replace(/\D/g,'')+phoneDigits(dial,raw); }
 
+  // Practical email check. type="email" alone allows nitin@gmail (no TLD),
+  // a@b and nitin#joshi@gmail.com, none of which can receive the Zoom link.
+  function isValidEmail(v){
+    if(!v || v.length>254) return false;
+    var parts = v.split('@');
+    if(parts.length!==2) return false;
+    var local = parts[0], domain = parts[1];
+    if(!local || local.length>64 || /^\.|\.$|\.\./.test(local)) return false;
+    if(!/^[A-Za-z0-9._%+-]+$/.test(local)) return false;
+    if(domain.length>253 || /^[.-]|[.-]$|\.\./.test(domain)) return false;
+    if(!/^[A-Za-z0-9.-]+$/.test(domain)) return false;
+    var labels = domain.split('.');
+    if(labels.length<2) return false;
+    for(var i=0;i<labels.length;i++){
+      if(!labels[i] || /^-|-$/.test(labels[i])) return false;
+    }
+    return /^[A-Za-z]{2,}$/.test(labels[labels.length-1]);
+  }
+
   (function wireForm(){
     var c = document.getElementById('lead-country'),
         d = document.getElementById('lead-dial'),
         p = document.getElementById('lead-phone'),
-        n = document.getElementById('lead-name');
-    if(!c||!d||!p||!n) return;
+        n = document.getElementById('lead-name'),
+        e = document.getElementById('lead-email');
+    if(!c||!d||!p||!n||!e) return;
 
     // Names: letters, spaces, apostrophes, hyphens and dots only.
     var NAME_BAD = /[^\p{L}\p{M}\s'.\-]/gu;
     n.addEventListener('input', function(){
       var v = n.value, clean = v.replace(NAME_BAD,'');
       if(clean!==v){ var at=n.selectionStart-(v.length-clean.length); n.value=clean; try{n.setSelectionRange(at,at);}catch(e){} }
+    });
+
+    // Email: allow only characters that can appear in a real address.
+    var EMAIL_BAD = /[^A-Za-z0-9._%+@-]/g;
+    e.addEventListener('input', function(){
+      var v = e.value, clean = v.replace(EMAIL_BAD,'');
+      if(clean!==v){ var at=e.selectionStart-(v.length-clean.length); e.value=clean; try{e.setSelectionRange(at,at);}catch(x){} }
     });
 
     // Phone: digits only, capped at the selected country's maximum.
@@ -1516,6 +1543,7 @@
     if (!name||!email||!rawPhone||!country){alert('Please fill in all fields.');return;}
     if (!dial){alert('Please select your country phone code.');return;}
     if (!/^[\p{L}\p{M}\s'.\-]+$/u.test(name)||!/\p{L}/u.test(name)){alert('Please enter your name using letters only.');return;}
+    if (!isValidEmail(email)){alert('Please enter a valid email address, for example name@gmail.com');return;}
     var rule=ruleFor(dial), digits=phoneDigits(dial,rawPhone);
     if (digits.length<rule.min||digits.length>rule.max){
       alert(rule.hint+'. You entered '+digits.length+'.');return;
