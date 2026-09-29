@@ -1425,26 +1425,86 @@
   function handleOverlayClick(e) {
     if (e.target === document.getElementById('modal')) closeModal();
   }
-  // Country -> dial code. Selecting a country auto-selects its phone code;
-  // the code stays editable for anyone whose number is registered elsewhere.
-  (function wireDialCode(){
-    var c=document.getElementById('lead-country'), d=document.getElementById('lead-dial');
-    if(!c||!d) return;
-    c.addEventListener('change',function(){
-      var opt=c.options[c.selectedIndex];
-      var code=opt?opt.getAttribute('data-dial'):'';
-      if(code) d.value=code;
+  // Per-country phone rules. len = allowed digit counts AFTER the dial code
+  // (national number, trunk 0 already removed). start = required first digit.
+  var PHONE_RULES = {
+    '+44' : {country:'United Kingdom', min:10, max:10, start:/^7/,     ph:'7911 123456',  hint:'UK mobiles are 10 digits starting with 7'},
+    '+91' : {country:'India',          min:10, max:10, start:/^[6-9]/, ph:'98765 43210',  hint:'Indian mobiles are 10 digits starting 6-9'},
+    '+353': {country:'Ireland',        min:9,  max:9,  start:/^8/,     ph:'87 123 4567',  hint:'Irish mobiles are 9 digits starting with 8'},
+    '+49' : {country:'Germany',        min:10, max:11, ph:'151 2345678', hint:'German mobiles are 10-11 digits'},
+    '+31' : {country:'Netherlands',    min:9,  max:9,  ph:'6 12345678',  hint:'Dutch numbers are 9 digits'},
+    '+33' : {country:'France',         min:9,  max:9,  ph:'6 12 34 56 78', hint:'French numbers are 9 digits'},
+    '+41' : {country:'Switzerland',    min:9,  max:9,  ph:'78 123 45 67', hint:'Swiss numbers are 9 digits'},
+    '+32' : {country:'Belgium',        min:8,  max:9,  ph:'470 12 34 56', hint:'Belgian numbers are 8-9 digits'},
+    '+46' : {country:'Sweden',         min:7,  max:9,  ph:'70 123 45 67', hint:'Swedish numbers are 7-9 digits'},
+    '+39' : {country:'Italy',          min:9,  max:10, ph:'312 345 6789', hint:'Italian mobiles are 9-10 digits'},
+    '+34' : {country:'Spain',          min:9,  max:9,  ph:'612 34 56 78', hint:'Spanish numbers are 9 digits'},
+    '+47' : {country:'Norway',         min:8,  max:8,  ph:'406 12 345',   hint:'Norwegian numbers are 8 digits'},
+    '+45' : {country:'Denmark',        min:8,  max:8,  ph:'20 12 34 56',  hint:'Danish numbers are 8 digits'},
+    '+351': {country:'Portugal',       min:9,  max:9,  ph:'912 345 678',  hint:'Portuguese numbers are 9 digits'},
+    '+43' : {country:'Austria',        min:9,  max:11, ph:'664 1234567',  hint:'Austrian mobiles are 9-11 digits'},
+    '+358': {country:'Finland',        min:9,  max:10, ph:'40 1234567',   hint:'Finnish mobiles are 9-10 digits'},
+    '+48' : {country:'Poland',         min:9,  max:9,  ph:'512 345 678',  hint:'Polish numbers are 9 digits'}
+  };
+  var GENERIC_RULE = {min:6, max:15, ph:'Your number', hint:'Enter 6-15 digits'};
+  function ruleFor(dial){ return PHONE_RULES[dial] || GENERIC_RULE; }
+
+  // Strips everything that is not a digit, drops the national trunk 0, and
+  // removes a dial code the user typed themselves. Guarded so Indian mobiles
+  // beginning 91 are not mistaken for the +91 country code.
+  function phoneDigits(dial, raw){
+    var code = String(dial).replace(/\D/g,'');
+    var n = String(raw).replace(/\D/g,'').replace(/^0+/,'');
+    if(code && n.indexOf(code)===0 && (n.length-code.length)>=9) n = n.slice(code.length);
+    return n;
+  }
+  function normalisePhone(dial, raw){ return '+'+String(dial).replace(/\D/g,'')+phoneDigits(dial,raw); }
+
+  (function wireForm(){
+    var c = document.getElementById('lead-country'),
+        d = document.getElementById('lead-dial'),
+        p = document.getElementById('lead-phone'),
+        n = document.getElementById('lead-name');
+    if(!c||!d||!p||!n) return;
+
+    // Names: letters, spaces, apostrophes, hyphens and dots only.
+    var NAME_BAD = /[^\p{L}\p{M}\s'.\-]/gu;
+    n.addEventListener('input', function(){
+      var v = n.value, clean = v.replace(NAME_BAD,'');
+      if(clean!==v){ var at=n.selectionStart-(v.length-clean.length); n.value=clean; try{n.setSelectionRange(at,at);}catch(e){} }
+    });
+
+    // Phone: digits only, capped at the selected country's maximum.
+    function applyRule(){
+      var r = ruleFor(d.value);
+      p.setAttribute('placeholder', r.ph);
+      p.setAttribute('maxlength', String(r.max));
+      if(p.value) p.value = p.value.replace(/\D/g,'').slice(0, r.max);
+    }
+    p.addEventListener('input', function(){
+      var r = ruleFor(d.value), v = p.value, clean = v.replace(/\D/g,'').slice(0, r.max);
+      if(clean!==v){ var at=p.selectionStart-(v.length-clean.length); p.value=clean; try{p.setSelectionRange(at,at);}catch(e){} }
+    });
+
+    // Country -> dial code.
+    c.addEventListener('change', function(){
+      var opt = c.options[c.selectedIndex];
+      var code = opt ? opt.getAttribute('data-dial') : '';
+      if(code){ d.value = code; }
+      applyRule();
+    });
+
+    // Dial code -> country (the reverse link).
+    d.addEventListener('change', function(){
+      var r = PHONE_RULES[d.value];
+      if(r){
+        for(var i=0;i<c.options.length;i++){
+          if(c.options[i].value===r.country){ c.selectedIndex=i; break; }
+        }
+      }
+      applyRule();
     });
   })();
-
-  // Returns E.164-style "+<code><number>": strips spaces/dashes, drops the
-  // national trunk 0, and removes a dial code the user typed themselves.
-  function normalisePhone(dial, raw){
-    var code=String(dial).replace(/\D/g,'');
-    var n=String(raw).replace(/\D/g,'').replace(/^0+/,'');
-    if(code && n.indexOf(code)===0 && (n.length-code.length)>=9) n=n.slice(code.length);
-    return '+'+code+n;
-  }
 
   function submitLead(e) {
     e.preventDefault();
@@ -1455,8 +1515,13 @@
     var country=document.getElementById('lead-country').value;
     if (!name||!email||!rawPhone||!country){alert('Please fill in all fields.');return;}
     if (!dial){alert('Please select your country phone code.');return;}
-    var phone=normalisePhone(dial,rawPhone);
-    if (phone.replace(/\D/g,'').length<8||phone.replace(/\D/g,'').length>15){alert('Please enter a valid WhatsApp number.');return;}
+    if (!/^[\p{L}\p{M}\s'.\-]+$/u.test(name)||!/\p{L}/u.test(name)){alert('Please enter your name using letters only.');return;}
+    var rule=ruleFor(dial), digits=phoneDigits(dial,rawPhone);
+    if (digits.length<rule.min||digits.length>rule.max){
+      alert(rule.hint+'. You entered '+digits.length+'.');return;
+    }
+    if (rule.start&&!rule.start.test(digits)){alert(rule.hint+'.');return;}
+    var phone='+'+String(dial).replace(/\D/g,'')+digits;
     if(typeof fbq!=='undefined'){fbq('track','Lead',{value:0,currency:'GBP'});fbq('track','CompleteRegistration',{value:0,currency:'GBP'});}
     fetch('https://connect.pabbly.com/webhook-listener/webhook/IjU3NjIwNTY5MDYzNjA0M2M1MjY0NTUzYyI_3D_pc/IjU3NjcwNTY5MDYzZjA0MzM1MjY0NTUzMzUxMzYi_pc',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,phone,country,time:new Date().toISOString(),page_url:window.location.href,status:'Registered',product:'Mental Gym - FREE'})}).catch(function(){});
     fetch(APPS_SCRIPT_URL+'?'+new URLSearchParams({name,email,phone,country,status:'Registered'}).toString(),{method:'GET',mode:'no-cors',keepalive:true});
