@@ -1320,29 +1320,52 @@
         <input id="lead-name" class="field-input" type="text" placeholder="Your full name" required/>
         <label class="field-label">Email Address *</label>
         <input id="lead-email" class="field-input" type="email" placeholder="your@email.com" required/>
-        <label class="field-label">WhatsApp Number *</label>
-        <input id="lead-phone" class="field-input" type="tel" placeholder="+44 7xxx xxxxxx" required/>
         <label class="field-label">Which Country Are You In? *</label>
         <select id="lead-country" class="field-input" required>
           <option value="" disabled selected>Select your country</option>
-          <option value="United Kingdom">United Kingdom</option>
-          <option value="Germany">Germany</option>
-          <option value="Netherlands">Netherlands</option>
-          <option value="France">France</option>
-          <option value="Switzerland">Switzerland</option>
-          <option value="Ireland">Ireland</option>
-          <option value="Belgium">Belgium</option>
-          <option value="Sweden">Sweden</option>
-          <option value="Italy">Italy</option>
-          <option value="Spain">Spain</option>
-          <option value="Norway">Norway</option>
-          <option value="Denmark">Denmark</option>
-          <option value="Portugal">Portugal</option>
-          <option value="Austria">Austria</option>
-          <option value="Finland">Finland</option>
-          <option value="Poland">Poland</option>
-          <option value="Other">Other</option>
+          <option value="United Kingdom" data-dial="+44">United Kingdom</option>
+          <option value="India" data-dial="+91">India</option>
+          <option value="Ireland" data-dial="+353">Ireland</option>
+          <option value="Germany" data-dial="+49">Germany</option>
+          <option value="Netherlands" data-dial="+31">Netherlands</option>
+          <option value="France" data-dial="+33">France</option>
+          <option value="Switzerland" data-dial="+41">Switzerland</option>
+          <option value="Belgium" data-dial="+32">Belgium</option>
+          <option value="Sweden" data-dial="+46">Sweden</option>
+          <option value="Italy" data-dial="+39">Italy</option>
+          <option value="Spain" data-dial="+34">Spain</option>
+          <option value="Norway" data-dial="+47">Norway</option>
+          <option value="Denmark" data-dial="+45">Denmark</option>
+          <option value="Portugal" data-dial="+351">Portugal</option>
+          <option value="Austria" data-dial="+43">Austria</option>
+          <option value="Finland" data-dial="+358">Finland</option>
+          <option value="Poland" data-dial="+48">Poland</option>
+          <option value="Other" data-dial="">Other</option>
         </select>
+        <label class="field-label">WhatsApp Number *</label>
+        <div style="display:flex;gap:8px;align-items:stretch;">
+          <select id="lead-dial" class="field-input" style="flex:0 0 118px;width:118px;" required>
+            <option value="" disabled selected>Code</option>
+          <option value="+44">+44 United Kingdom</option>
+          <option value="+91">+91 India</option>
+          <option value="+353">+353 Ireland</option>
+          <option value="+49">+49 Germany</option>
+          <option value="+31">+31 Netherlands</option>
+          <option value="+33">+33 France</option>
+          <option value="+41">+41 Switzerland</option>
+          <option value="+32">+32 Belgium</option>
+          <option value="+46">+46 Sweden</option>
+          <option value="+39">+39 Italy</option>
+          <option value="+34">+34 Spain</option>
+          <option value="+47">+47 Norway</option>
+          <option value="+45">+45 Denmark</option>
+          <option value="+351">+351 Portugal</option>
+          <option value="+43">+43 Austria</option>
+          <option value="+358">+358 Finland</option>
+          <option value="+48">+48 Poland</option>
+          </select>
+          <input id="lead-phone" class="field-input" type="tel" inputmode="numeric" style="flex:1 1 auto;min-width:0;" placeholder="7911 123456" required/>
+        </div>
         <button type="submit" class="submit-btn">✅ Confirm My Free Spot →</button>
         <p style="font-size:11px;color:#333;text-align:center;margin-top:10px;">We'll send your Zoom link via WhatsApp</p>
       </form>
@@ -1402,13 +1425,38 @@
   function handleOverlayClick(e) {
     if (e.target === document.getElementById('modal')) closeModal();
   }
+  // Country -> dial code. Selecting a country auto-selects its phone code;
+  // the code stays editable for anyone whose number is registered elsewhere.
+  (function wireDialCode(){
+    var c=document.getElementById('lead-country'), d=document.getElementById('lead-dial');
+    if(!c||!d) return;
+    c.addEventListener('change',function(){
+      var opt=c.options[c.selectedIndex];
+      var code=opt?opt.getAttribute('data-dial'):'';
+      if(code) d.value=code;
+    });
+  })();
+
+  // Returns E.164-style "+<code><number>": strips spaces/dashes, drops the
+  // national trunk 0, and removes a dial code the user typed themselves.
+  function normalisePhone(dial, raw){
+    var code=String(dial).replace(/\D/g,'');
+    var n=String(raw).replace(/\D/g,'').replace(/^0+/,'');
+    if(code && n.indexOf(code)===0 && (n.length-code.length)>=9) n=n.slice(code.length);
+    return '+'+code+n;
+  }
+
   function submitLead(e) {
     e.preventDefault();
     var name=document.getElementById('lead-name').value.trim();
     var email=document.getElementById('lead-email').value.trim();
-    var phone=document.getElementById('lead-phone').value.trim();
+    var dial=document.getElementById('lead-dial').value;
+    var rawPhone=document.getElementById('lead-phone').value.trim();
     var country=document.getElementById('lead-country').value;
-    if (!name||!email||!phone||!country){alert('Please fill in all fields.');return;}
+    if (!name||!email||!rawPhone||!country){alert('Please fill in all fields.');return;}
+    if (!dial){alert('Please select your country phone code.');return;}
+    var phone=normalisePhone(dial,rawPhone);
+    if (phone.replace(/\D/g,'').length<8||phone.replace(/\D/g,'').length>15){alert('Please enter a valid WhatsApp number.');return;}
     if(typeof fbq!=='undefined'){fbq('track','Lead',{value:0,currency:'GBP'});fbq('track','CompleteRegistration',{value:0,currency:'GBP'});}
     fetch('https://connect.pabbly.com/webhook-listener/webhook/IjU3NjIwNTY5MDYzNjA0M2M1MjY0NTUzYyI_3D_pc/IjU3NjcwNTY5MDYzZjA0MzM1MjY0NTUzMzUxMzYi_pc',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,phone,country,time:new Date().toISOString(),page_url:window.location.href,status:'Registered',product:'Mental Gym - FREE'})}).catch(function(){});
     fetch(APPS_SCRIPT_URL+'?'+new URLSearchParams({name,email,phone,country,status:'Registered'}).toString(),{method:'GET',mode:'no-cors',keepalive:true});
